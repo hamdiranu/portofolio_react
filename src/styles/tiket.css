@@ -1,0 +1,24 @@
+.tiket {
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px 40px;
+}
+
+.tiket form {
+    width: 100%;
+}
+
+.tiket button {
+    margin-top: 5px;
+    width: 85%;
+}
+
+.tiket h2 {
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
