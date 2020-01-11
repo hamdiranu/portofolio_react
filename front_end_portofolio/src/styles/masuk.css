@@ -257,13 +257,22 @@
   #icon {
     width:60%;
   }
-  
+
+.semua_iklan {
+  padding-top: 15px;
+}
+
+.jarak_iklan {
+  padding-right: 0px;
+  padding-bottom: 10px;
+}
+
 #carouselExampleControls {
-  padding-top: 110px;
+  padding-right: 10px;
 }
 
 .carousel-control-prev, .carousel-control-next {
-  padding-top: 110px;
+  padding-right: 10px;
 }
 
 @media(max-width:767px){

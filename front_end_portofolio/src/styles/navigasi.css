@@ -5,6 +5,15 @@
     margin-left: 40px;
 }
 
+.navbar_react {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.form-control {
+    width: 400px;
+  }
+
 a {
     font-size:15px;
     font-family: 'Ubuntu', Arial, Helvetica, sans-serif;

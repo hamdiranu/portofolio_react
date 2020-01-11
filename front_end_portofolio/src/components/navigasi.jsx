@@ -1,11 +1,15 @@
 import React from 'react';
 import '../styles/navigasi.css';
 import '../styles/bootstrap.min.css'
-import logo from '../images/navigasi-logo.png'
+import logo from '../images/logoM.png'
+import profileLogo from '../images/profile_icon2.png'
+import cartLogo from '../images/cart_icon2.png'
+import homeLogo from '../images/home_icon5.png'
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'unistore/react'
 import { store, actions } from '../store'
+import { Nav, Navbar, NavDropdown, Form, FormControl, Button, DropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap'
 
 class Navigasi extends React.Component {
 
@@ -14,115 +18,73 @@ class Navigasi extends React.Component {
         this.props.handleSearch(e)
     }
 
-    cariKotaData = async (event) => {
-        // console.log("cek params", this.props)
-        const kota = this.props.idKota;
-        // console.log("KOTAAAAAAAAAA", kota)
-        await this.props.kategoriKota(kota);
-        this.props.history.push("/listdestinasi");
-    }
-
     handleSignOut = async () => {
         await store.setState({is_login:false});
         // console.warn('cek log out', this.props.is_login)
-        this.props.history.push("/masuk");
+        this.props.history.push("/");
       };
 
     render (){
         
         if (this.props.is_login){
             return (
-            <header>
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-md-1">
-                                <img className="logo-react" src={logo} alt="" />
-                            </div>
-                        <div className="col-md-1 logo-name">
-                            <Link to='/' style={{textDecoration:"none" }}> 
-                            <h3 style={{ color:'black'}}>temanjalan</h3>
-                            </Link>
-                        </div>
-                        <div className='col-md-1'></div>
-                        <div className="col-md-6 search">
-                
-                            <form onSubmit={e => e.preventDefault()} class="form-inline my-2 my-lg-0">
-                                <input class="form-control mr-sm-2" 
-                                style={{ width:"300px"}} 
-                                type="search" 
-                                placeholder="Search Your Destination City" 
-                                aria-label="Search"
-                                id="idKota"
-                                name="idKota"
-                                onChange={event => this.props.handleSearch(event)}/>
-                                <button class="btn btn-info my-sm-0" 
-                                type="submit"
-                                onClick={() => this.cariKotaData()}
-                                >Search</button>
-                            </form>
-    
-                        </div>
-                        <div className="col-md-2 user_in">
-                            <nav>
-                                <ul className="list-unstyled navigate" style={{ textDecoration:'none'}}> 
-                                    <li className="navi1" >
-                                        <Link to="/profil" style={{ fontSize: "large", color:'black', textDecoration:'none'}}>Profile</Link></li>
-                                    <li className="navi1">
-                                        <Link style={{ fontSize: "large", color:'black', textDecoration:'none'}}
-                                        onClick={this.handleSignOut}>Log Out</Link></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            <Navbar className="navbar_react" collapseOnSelect expand="lg" bg="dark" variant="dark" >
+                <Navbar.Brand href="#home"><img className="logo-react" src={logo} alt="" /></Navbar.Brand>
+                <Navbar.Brand href="#home">Manggaleh.com</Navbar.Brand>
+                <Navbar.Brand className="mr-lg-5" href="#home"><Link to='/' style={{textDecoration:"none" }}> 
+                        <h3 style={{ color:'black'}}><img className="logo-react" src={homeLogo} alt="" /></h3>
+                        </Link></Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Form inline>
+                    <select class="custom-select">
+                        <option selected>Semua Kategori</option>
+                        <option value="1">Elektronik</option>
+                        <option value="2">Fashion</option>
+                        <option value="3">Otomotif</option>
+                    </select>
+                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                    <Button variant="secondary" >Search</Button>
+                    </Form>
+                </Navbar.Collapse>
+                <Navbar.Brand href="#home"><img className="mr-lg-4 logo-react" src={cartLogo} alt="" /></Navbar.Brand>
+                <ButtonGroup aria-label="Third group">
+                    <Button variant="outline-secondary"><Link style={{color:'black', textDecoration:'none'}}
+                        onClick={this.handleSignOut}>Log Out</Link></Button>
+                </ButtonGroup>
+                <Navbar.Brand ><Link to="/profil"><img className="logo-react" src={profileLogo} alt="" /></Link></Navbar.Brand>
+            </Navbar>
             )
         } else {
             return (
-                <header>
-                    <div className="container-fluid">
-                        <div className="row">
-                            <div className="col-md-1">
-                                <img className="logo-react" src={logo} alt="" />
-                            </div>
-                            <div className="col-md-1 logo-name">
-                                <Link to='/' style={{textDecoration:"none" }}> 
-                                <h3 style={{ color:'black'}}>temanjalan</h3>
-                                </Link>
-                            </div>
-                            <div className='col-md-1'></div>
-                            <div className="col-md-6 search">
-                    
-                                <form onSubmit={e => e.preventDefault()} class="form-inline my-2 my-lg-0">
-                                    <input class="form-control mr-sm-2" 
-                                    style={{ width:"300px"}} 
-                                    type="search" 
-                                    placeholder="Search Your Destination City" 
-                                    aria-label="Search"
-                                    id="idKota"
-                                    name="idKota"
-                                    onChange={event => this.props.handleSearch(event)}/>
-                                    <button class="btn btn-info my-sm-0" 
-                                    type="submit"
-                                    onClick={() => this.cariKotaData()}
-                                    >Search</button>
-                                </form>
-        
-                            </div>
-                            <div className="col-md-2 user_in">
-                                <nav>
-                                    <ul className="list-unstyled navigate" style={{ textDecoration:'none'}}> 
-                                        <li className="navi1" >
-                                            <Link to="/profil" style={{ fontSize: "large", color:'black', textDecoration:'none'}}>Profile</Link></li>
-                                        <li className="navi1">
-                                            <Link to='/signIn' style={{ fontSize: "large", color:'black', textDecoration:'none'}}
-                                            >Log In</Link></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </header>
+                <Navbar className="navbar_react" collapseOnSelect expand="lg" bg="dark" variant="dark" >
+                    <Navbar.Brand href="#home"><img className="logo-react" src={logo} alt="" /></Navbar.Brand>
+                    <Navbar.Brand href="#home">Manggaleh.com</Navbar.Brand>
+                    <Navbar.Brand className="mr-lg-5" href="#home"><Link to='/' style={{textDecoration:"none" }}> 
+                        <h3 style={{ color:'black'}}><img className="logo-react" src={homeLogo} alt="" /></h3>
+                        </Link></Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Form inline>
+                        <select class="custom-select">
+                            <option selected>Semua Kategori</option>
+                            <option value="1">Elektronik</option>
+                            <option value="2">Fashion</option>
+                            <option value="3">Otomotif</option>
+                        </select>
+                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                        <Button variant="secondary">Search</Button>
+                        </Form>
+                    </Navbar.Collapse>
+                    <Navbar.Brand href="#home"><img className="mr-lg-4 logo-react" src={cartLogo} alt="" /></Navbar.Brand>
+                    <ButtonGroup className="mr-lg-4" aria-label="Second group">
+                        <Button variant="outline-secondary" style={{color:'black', textDecoration:'none'}}>Sign Up</Button>
+                    </ButtonGroup>
+                    <ButtonGroup aria-label="Third group">
+                        <Button variant="outline-secondary"><Link to="/profil" style={{color:'black', textDecoration:'none'}}>Sign In</Link></Button>
+                    </ButtonGroup>
+                    <Navbar.Brand ><Link to="/profil"><img className="logo-react" src={profileLogo} alt="" /></Link></Navbar.Brand>
+                </Navbar>
                 )
         }
         

@@ -13,7 +13,7 @@ const BodyProfile = props => {
   const email = props.email;
   const full_name = props.username;
   if (is_login === false) {
-    return <Redirect to={{ pathname: "/masuk" }} />;
+    return <Redirect to={{ pathname: "/signIn" }} />;
   } else {
     return (
       <React.Fragment>
