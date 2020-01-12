@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/masuk.css';
 import '../styles/bootstrap.min.css'
-import logo from '../images/navigasi-logo.png';
+import logo from '../images/logoM.png';
 import { withRouter, Link } from 'react-router-dom'
 import { connect } from 'unistore/react'
 import { actions } from '../store'

@@ -77,7 +77,7 @@ class Navigasi extends React.Component {
                         </Form>
                     </Navbar.Collapse>
                     <ButtonGroup className="mr-lg-4" aria-label="Second group">
-                        <Button variant="outline-secondary"><Link to="/profil" style={{color:'black', textDecoration:'none'}}>Sign Up</Link></Button>
+                        <Button variant="outline-secondary"><Link to="/signUp" style={{color:'black', textDecoration:'none'}}>Sign Up</Link></Button>
                     </ButtonGroup>
                     <ButtonGroup aria-label="Third group">
                         <Button variant="outline-secondary"><Link to="/profil" style={{color:'black', textDecoration:'none'}}>Sign In</Link></Button>

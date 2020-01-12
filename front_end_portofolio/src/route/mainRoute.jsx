@@ -5,6 +5,7 @@ import { store } from '../store';
 import NotMatch from '../pages/notMatch';
 import Profile from '../pages/profil';
 import Login from '../pages/signIn';
+import Register from '../pages/register';
 import Beranda from '../pages/beranda';
 
 const MainRoute = () => {
@@ -16,6 +17,7 @@ const MainRoute = () => {
                     <Route exact path="/" component={Beranda} />
                     <Route exact path='/profil' component={Profile} />
                     <Route exact path='/signIn' component={Login} />
+                    <Route exact path='/signUp' component={Register} />
                     <Route component={NotMatch} />
                 </Switch>
             </BrowserRouter>

@@ -8,6 +8,10 @@
     background-color: #DFD8D2;
   }
   
+  .judulSignUp {
+    padding-top: 20px;
+  }
+
   a {
     color: #92badd;
     display:inline-block;
@@ -36,10 +40,20 @@
     justify-content: center;
     width: 100%;
     min-height: 100%;
-    padding: 50px;
+    padding: 20px;
 
   }
-  
+
+  .input_bar {
+    max-width: 100px;
+    max-height: 30px;
+  }
+
+  .input_bar_address {
+    max-width: 100px;
+    max-height: 90px;
+  }
+    
   #formContent {
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 10px 10px 10px 10px;
