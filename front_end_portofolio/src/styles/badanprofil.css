@@ -8,6 +8,10 @@
   margin-top: 60px;
 }
 
+.text_profil {
+  font-size: 20px;
+}
+
 .info_profil {
   margin-top: 23px;
   border-radius: 5%;
@@ -38,6 +42,18 @@
     box-shadow: 0px 3px 6px 2px rgba(193,195,199,1);
     margin-top: 155px;
     margin-bottom: -140px;
+  }
+
+  .text_profil {
+    font-size: 13px;
+  }
+
+  .info_user {
+    padding-right: 0px;
+  }
+
+  .keterangan_profil {
+    padding-left: 0px;
   }
     
   .profileBody-row {

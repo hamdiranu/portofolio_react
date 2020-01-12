@@ -41,89 +41,90 @@ const BodyProfile = props => {
                   </p>
                 </div>
                 <div style={{display:"flex", marginBottom:"25px"}}>
-                  <div className="col-md-3"></div>
-                  <div className="col-md-6" style={{borderTop:"1px solid black"}}></div>
+                  <div className="col-md-3 col-sm-1"></div>
+                  <div className="col-md-6 col-sm-10" style={{borderTop:"1px solid black"}}></div>
+                  <div className="col-md-3 col-sm-1"></div>
                 </div>
                 <div className='col-md-12' style={{display:"flex"}}>
-                  <div className="col-md-4">
-                    <p className='name' style={{
-                        textAlign: 'left', fontSize:"20px", paddingLeft:"20px"
+                  <div className="col-md-4 col-sm-2 info_user">
+                    <p className='text_profil' style={{
+                        textAlign: 'left', paddingLeft:"20px"
                       }}> Username
                     </p>
                   </div>
-                  <div className="col-md-7">
-                    <p className='name' style={{
-                      textAlign: 'left', fontSize:"20px"
+                  <div className="col-md-7 col-sm-6 keterangan_profil">
+                    <p className='text_profil' style={{
+                      textAlign: 'left'
                       }}> : Anonymous 
                     </p>
                   </div>
                 </div>
                 <div className='col-md-12' style={{display:"flex"}}>
-                  <div className="col-md-4">
-                    <p className='name' style={{
-                        textAlign: 'left', fontSize:"20px", paddingLeft:"20px"
+                  <div className="col-md-4 col-sm-2 info_user">
+                    <p className='text_profil' style={{
+                        textAlign: 'left', paddingLeft:"20px"
                       }}> Gender
                     </p>
                   </div>
-                  <div className="col-md-7">
-                    <p className='name' style={{
-                      textAlign: 'left', fontSize:"20px"
+                  <div className="col-md-7 col-sm-6 keterangan_profil">
+                    <p className='text_profil' style={{
+                      textAlign: 'left'
                       }}> : Others
                     </p>
                   </div>
                 </div>
                 <div className='col-md-12' style={{display:"flex"}}>
-                  <div className="col-md-4">
-                    <p className='name' style={{
-                        textAlign: 'left', fontSize:"20px", paddingLeft:"20px"
+                  <div className="col-md-4 col-sm-2 info_user">
+                    <p className='text_profil' style={{
+                        textAlign: 'left', paddingLeft:"20px"
                       }}> Date of Birth
                     </p>
                   </div>
-                  <div className="col-md-7">
-                    <p className='name' style={{
-                      textAlign: 'left', fontSize:"20px"
+                  <div className="col-md-7 col-sm-6 keterangan_profil">
+                    <p className='text_profil' style={{
+                      textAlign: 'left'
                       }}> : 01 / 01 / 2020
                     </p>
                   </div>
                 </div>
                 <div className='col-md-12' style={{display:"flex"}}>
-                  <div className="col-md-4">
-                    <p className='name' style={{
-                        textAlign: 'left', fontSize:"20px", paddingLeft:"20px"
+                  <div className="col-md-4 col-sm-2 info_user">
+                    <p className='text_profil' style={{
+                        textAlign: 'left', paddingLeft:"20px"
                       }}> Email
                     </p>
                   </div>
-                  <div className="col-md-7">
-                    <p className='name' style={{
-                      textAlign: 'left', fontSize:"20px"
+                  <div className="col-md-7 col-sm-6 keterangan_profil">
+                    <p className='text_profil' style={{
+                      textAlign: 'left'
                       }}> : Anonymous@alterra.id
                     </p>
                   </div>
                 </div>
                 <div className='col-md-12' style={{display:"flex"}}>
-                  <div className="col-md-4">
-                    <p className='name' style={{
-                        textAlign: 'left', fontSize:"20px", paddingLeft:"20px"
+                  <div className="col-md-4 col-sm-2 info_user">
+                    <p className='text_profil' style={{
+                        textAlign: 'left', paddingLeft:"20px"
                       }}> Phone Number
                     </p>
                   </div>
-                  <div className="col-md-7">
-                    <p className='name' style={{
-                      textAlign: 'left', fontSize:"20px"
+                  <div className="col-md-7 col-sm-6 keterangan_profil">
+                    <p className='text_profil' style={{
+                      textAlign: 'left'
                       }}> : 0812xxxxxxxx 
                     </p>
                   </div>
                 </div>
                 <div className='col-md-12' style={{display:"flex"}}>
-                  <div className="col-md-4">
-                    <p className='name' style={{
-                        textAlign: 'left', fontSize:"20px", paddingLeft:"20px"
+                  <div className="col-md-4 col-sm-2 info_user">
+                    <p className='text_profil' style={{
+                        textAlign: 'left', paddingLeft:"20px"
                       }}> Address 
                     </p>
                   </div>
-                  <div className="col-md-7">
-                    <p className='name' style={{
-                      textAlign: 'left', fontSize:"20px"
+                  <div className="col-md-7 col-sm-6 keterangan_profil">
+                    <p className='text_profil' style={{
+                      textAlign: 'left'
                       }}> : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ex ea commodo consequat. 
                     </p>
                   </div>
