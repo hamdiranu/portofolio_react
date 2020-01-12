@@ -28,7 +28,7 @@ class Navigasi extends React.Component {
         
         if (this.props.is_login){
             return (
-            <Navbar className="navbar_react" collapseOnSelect expand="lg" bg="dark" variant="dark" >
+            <Navbar fixed="top" className="navbar_react" collapseOnSelect expand="lg" bg="dark" variant="dark" >
                 <Navbar.Brand href="#home"><img className="logo-react" src={logo} alt="" /></Navbar.Brand>
                 <Navbar.Brand href="#home">Manggaleh.com</Navbar.Brand>
                 <Navbar.Brand className="mr-lg-5" href="#home"><Link to='/' style={{textDecoration:"none" }}> 
@@ -57,7 +57,7 @@ class Navigasi extends React.Component {
             )
         } else {
             return (
-                <Navbar className="navbar_react" collapseOnSelect expand="lg" bg="dark" variant="dark" >
+                <Navbar fixed="top" className="navbar_react" collapseOnSelect expand="lg" bg="dark" variant="dark" >
                     <Navbar.Brand href="#home"><img className="logo-react" src={logo} alt="" /></Navbar.Brand>
                     <Navbar.Brand href="#home">Manggaleh.com</Navbar.Brand>
                     <Navbar.Brand className="mr-lg-5" href="#home"><Link to='/' style={{textDecoration:"none" }}> 
@@ -78,7 +78,7 @@ class Navigasi extends React.Component {
                     </Navbar.Collapse>
                     <Navbar.Brand href="#home"><img className="mr-lg-4 logo-react" src={cartLogo} alt="" /></Navbar.Brand>
                     <ButtonGroup className="mr-lg-4" aria-label="Second group">
-                        <Button variant="outline-secondary" style={{color:'black', textDecoration:'none'}}>Sign Up</Button>
+                        <Button variant="outline-secondary"><Link to="/profil" style={{color:'black', textDecoration:'none'}}>Sign Up</Link></Button>
                     </ButtonGroup>
                     <ButtonGroup aria-label="Third group">
                         <Button variant="outline-secondary"><Link to="/profil" style={{color:'black', textDecoration:'none'}}>Sign In</Link></Button>

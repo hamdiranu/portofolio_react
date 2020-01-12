@@ -10,9 +10,22 @@
     padding-bottom: 15px;
 }
 
-.form-control {
-    width: 400px;
+
+.custom-select {
+    font-size: 12px;
+    width: 130px;
+}
+
+
+
+.form-inline .form-control {
+    width: 180px;
+    height: 34px;
   }
+
+.btn {
+    font-size: 12px;
+}
 
 a {
     font-size:15px;
@@ -267,6 +280,21 @@ header {
   }
 
   @media(max-width:767px){
+
+    .form-inline .form-control {
+        width: 138px;
+        height: 34px;
+      }
+
+    .custom-select {
+        font-size: 12px;
+        width: 130px;
+    }
+    
+    .btn {
+        font-size: 12px;
+    }
+
     .logo-name{ 
         padding-top: 5px;
         text-align: center;
@@ -284,9 +312,8 @@ header {
     }
 
     .form-control {
+        width: 40%;
         display: block;
-        width: 100%;
-        height: calc(1.5em + .75rem + 2px);
         padding: .375rem .75rem;
         font-size: 1rem;
         font-weight: 400;

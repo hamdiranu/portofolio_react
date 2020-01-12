@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/masuk.css';
 import '../styles/bootstrap.min.css';
-import gambar1 from '../images/sliderNoMovement1resize.jpg';
+import gambar1 from '../images/sliderNoMovement1.jpg';
 import gambar2 from '../images/sliderNoMovement2.jpg';
 
 class Promo extends React.Component {

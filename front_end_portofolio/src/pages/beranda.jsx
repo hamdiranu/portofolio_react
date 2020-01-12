@@ -15,13 +15,19 @@ class Beranda extends Component {
           return (
             <div>
                 <Navigasi/>
-                <div className="container-fluid">
+                <div className="container-fluid body_beranda">
                   <div className="row semua_iklan">
                     <div className="col-md-8 jarak_iklan" >
                       <Carousel/>
                     </div>
                     <Iklan/>
                   </div>
+                  <div className="row">
+                    <div style={{border:"1px solid black"}}>
+                      
+                    </div>
+                  </div>
+                  {/* <Divider variant="middle"></Divider> */}
                 </div>
                 <Footer/>
               </div>

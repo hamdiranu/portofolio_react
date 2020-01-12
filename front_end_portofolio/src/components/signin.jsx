@@ -28,7 +28,7 @@ class SignIn extends React.Component {
                         <input 
                         type="text" 
                         id="login" 
-                        className="fadeIn second" 
+                        className="col-md-12 col-sm-12 fadeIn second" 
                         name="username" 
                         placeholder="Your Username"
                         onChange={e => this.props.changeInput(e)} />
