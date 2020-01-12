@@ -38,7 +38,7 @@ class Navigasi extends React.Component {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Form inline>
                     <select class="custom-select">
-                        <option selected>Semua Kategori</option>
+                        <option selected>All Category</option>
                         <option value="1">Elektronik</option>
                         <option value="2">Fashion</option>
                         <option value="3">Otomotif</option>
@@ -67,7 +67,7 @@ class Navigasi extends React.Component {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Form inline>
                         <select class="custom-select">
-                            <option selected>Semua Kategori</option>
+                            <option selected>All Category</option>
                             <option value="1">Elektronik</option>
                             <option value="2">Fashion</option>
                             <option value="3">Otomotif</option>

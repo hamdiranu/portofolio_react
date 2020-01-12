@@ -42,10 +42,13 @@ class SignIn extends React.Component {
                         <input 
                         type="submit" 
                         className="fadeIn fourth" 
-                        value="Log In" 
+                        value="Log In"
+                        style={{marginBottom:"15px", marginTop:"10px"}}
                         onClick={this.doLogin}/>
                     </form>
-
+                <div style={{marginBottom:"10px"}}>
+                    <span>Doesn't have account? <Link className="underlineHover" to="/signUp">Sign up</Link> now</span>
+                </div>
                 {/* <!-- Remind Passowrd --> */}
                 <div id="formFooter">
                 <Link className="underlineHover" to="/">Back to Home</Link>
