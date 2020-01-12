@@ -76,7 +76,6 @@ class Navigasi extends React.Component {
                         <Button variant="secondary">Search</Button>
                         </Form>
                     </Navbar.Collapse>
-                    <Navbar.Brand href="#home"><img className="mr-lg-4 logo-react" src={cartLogo} alt="" /></Navbar.Brand>
                     <ButtonGroup className="mr-lg-4" aria-label="Second group">
                         <Button variant="outline-secondary"><Link to="/profil" style={{color:'black', textDecoration:'none'}}>Sign Up</Link></Button>
                     </ButtonGroup>

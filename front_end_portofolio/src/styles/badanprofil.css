@@ -8,6 +8,16 @@
   margin-top: 60px;
 }
 
+.info_profil {
+  margin-top: 23px;
+  border-radius: 5%;
+}
+
+.kotak_foto_profil {
+  border-radius: 5%;
+  margin-top: 23px;
+}
+
 .name {
   font-size: 50px;
   font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
@@ -28,6 +38,10 @@
     box-shadow: 0px 3px 6px 2px rgba(193,195,199,1);
     margin-top: 155px;
     margin-bottom: -140px;
+  }
+    
+  .profileBody-row {
+    padding-top: 195px;
   }
 
 }

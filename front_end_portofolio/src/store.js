@@ -115,7 +115,7 @@ export const actions = store => ({
             password: password
         };
         const test = await axios
-            .post("https://groupproject.free.beeceptor.com/masuk", mydata)
+            .post("https://reactportofolio.free.beeceptor.com/masuk", mydata)
             .then(response => {
                 return response
             })

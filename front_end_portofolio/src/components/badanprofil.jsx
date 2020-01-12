@@ -17,41 +17,122 @@ const BodyProfile = props => {
   } else {
     return (
       <React.Fragment>
-        <section className="content">
-          <div className="container">
-              <div className="row profileBody-row">
+        <div className="container-fluid">
+          <div className="row profileBody-row"> 
+            <div className="col-md-4">
+              <div className="kotak_foto_profil" style={{border:"1px solid black"}}>
+                <div style={{textAlign:"center"}}>
+                  <p>
+                    <img style={{borderRadius:"10%", width:"50%", height:"50%", paddingTop:"10px"}} src={photo}></img>
+                  </p>
+                </div>
+                <div style={{textAlign:"center"}}>
+                  <p>Username : AzukiMiho</p>
+                </div>
+              </div>
+            </div>
+            {/* <div className="col-md-1"></div> */}
+            <div className="col-md-7">
+              <div className="info_profil" style={{border:"1px solid black"}}>
+                <div className='col-md-12'>
+                  <p className='name' style={{
+                      textAlign: 'center',fontSize:"35px", paddingTop:"15px"
+                    }}> Profile
+                  </p>
+                </div>
+                <div style={{display:"flex", marginBottom:"25px"}}>
                   <div className="col-md-3"></div>
-                  <div className='col-md-3 profile-pic'>
-                    <p style={{
-                        textAlign: "right",
-                        marginTop: '50px'
-                      }}>
-                      <img style={{ width:'100%', marginTop:'-36px' }} src={photo}></img>
+                  <div className="col-md-6" style={{borderTop:"1px solid black"}}></div>
+                </div>
+                <div className='col-md-12' style={{display:"flex"}}>
+                  <div className="col-md-4">
+                    <p className='name' style={{
+                        textAlign: 'left', fontSize:"20px", paddingLeft:"20px"
+                      }}> Username
                     </p>
                   </div>
-                  <div className='col-md-6'>
-                      <div className='col-md-12'>
-                          <p className='name' style={{
-                              textAlign: 'left',
-                              marginTop: '150px',
-                              marginTop: '190px'
-                            }}>
-                            <label></label> {full_name}
-                          </p>
-                      </div>
-                      <div className='col-md-12'>
-                          <p className='email' style={{
-                              textAlign: 'left',
-                              marginTop: '40px',
-                              marginLeft: '7px'
-                            }}>
-                            <label></label> {email}
-                          </p>
-                      </div>
+                  <div className="col-md-7">
+                    <p className='name' style={{
+                      textAlign: 'left', fontSize:"20px"
+                      }}> : Anonymous 
+                    </p>
                   </div>
+                </div>
+                <div className='col-md-12' style={{display:"flex"}}>
+                  <div className="col-md-4">
+                    <p className='name' style={{
+                        textAlign: 'left', fontSize:"20px", paddingLeft:"20px"
+                      }}> Gender
+                    </p>
+                  </div>
+                  <div className="col-md-7">
+                    <p className='name' style={{
+                      textAlign: 'left', fontSize:"20px"
+                      }}> : Others
+                    </p>
+                  </div>
+                </div>
+                <div className='col-md-12' style={{display:"flex"}}>
+                  <div className="col-md-4">
+                    <p className='name' style={{
+                        textAlign: 'left', fontSize:"20px", paddingLeft:"20px"
+                      }}> Date of Birth
+                    </p>
+                  </div>
+                  <div className="col-md-7">
+                    <p className='name' style={{
+                      textAlign: 'left', fontSize:"20px"
+                      }}> : 01 / 01 / 2020
+                    </p>
+                  </div>
+                </div>
+                <div className='col-md-12' style={{display:"flex"}}>
+                  <div className="col-md-4">
+                    <p className='name' style={{
+                        textAlign: 'left', fontSize:"20px", paddingLeft:"20px"
+                      }}> Email
+                    </p>
+                  </div>
+                  <div className="col-md-7">
+                    <p className='name' style={{
+                      textAlign: 'left', fontSize:"20px"
+                      }}> : Anonymous@alterra.id
+                    </p>
+                  </div>
+                </div>
+                <div className='col-md-12' style={{display:"flex"}}>
+                  <div className="col-md-4">
+                    <p className='name' style={{
+                        textAlign: 'left', fontSize:"20px", paddingLeft:"20px"
+                      }}> Phone Number
+                    </p>
+                  </div>
+                  <div className="col-md-7">
+                    <p className='name' style={{
+                      textAlign: 'left', fontSize:"20px"
+                      }}> : 0812xxxxxxxx 
+                    </p>
+                  </div>
+                </div>
+                <div className='col-md-12' style={{display:"flex"}}>
+                  <div className="col-md-4">
+                    <p className='name' style={{
+                        textAlign: 'left', fontSize:"20px", paddingLeft:"20px"
+                      }}> Address 
+                    </p>
+                  </div>
+                  <div className="col-md-7">
+                    <p className='name' style={{
+                      textAlign: 'left', fontSize:"20px"
+                      }}> : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ex ea commodo consequat. 
+                    </p>
+                  </div>
+                </div>
+                
               </div>
+            </div>
           </div>
-        </section>
+        </div>
       </React.Fragment>
     );
   }
