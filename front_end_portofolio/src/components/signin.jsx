@@ -12,6 +12,7 @@ class SignIn extends React.Component {
         await this.props.postLogin()
         if (this.props.is_login){
             this.props.history.push("/profil");
+            alert("Login Success")
         }
     }
 

@@ -3,27 +3,7 @@ import axios from "axios";
 import moment from 'moment';
 
 const initialState = {
-    originPlace: "",
-    departureDate: "",
-    kiwiUrl: "https://api.skypicker.com/flights?partner=picky",
-    ticketList: [],
-    airlineList: ["ID", "QG", "GA", "QZ", "JT", "SJ", "IW"],
-    airlineImageLink: {
-        ID: "https://4.bp.blogspot.com/-qdPMmSV78LE/UYY_foFEDwI/AAAAAAAANV0/-apMs-fBjsM/s1600/LOGO+BATIK+AIR.png",
-        QG: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/2012_Citilink_Logo.svg/250px-2012_Citilink_Logo.svg.png",
-        GA: "https://upload.wikimedia.org/wikipedia/id/thumb/f/fe/Garuda_Indonesia_Logo.svg/250px-Garuda_Indonesia_Logo.svg.png",
-        QZ: "https://seeklogo.com/images/A/Air_Asia-logo-5ACDC17858-seeklogo.com.png",
-        JT: "https://upload.wikimedia.org/wikipedia/id/thumb/5/59/Lion_Air.svg/250px-Lion_Air.svg.png",
-        SJ: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/LOGO_SJ_VERTIKAL.png/250px-LOGO_SJ_VERTIKAL.png",
-        IW: "https://upload.wikimedia.org/wikipedia/id/thumb/a/a9/Wings_Air.svg/150px-Wings_Air.svg.png"
-    },
-    listDestinasi : [],
-    listHasilTriposo : [],
-    apiUrl : "https://www.triposo.com/api/20190906/location.json?account=HRJIHM7V&token=p16qxx6luhn0k0fhlou5m4h52poe8c0f&id=",
-    idKota : "",
     search : "",
-    latitudeKota : '',
-    longitudeKota : '',
     isLoading: true,
     username:'',
     email:'',

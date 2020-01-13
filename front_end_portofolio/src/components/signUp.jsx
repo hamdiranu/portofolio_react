@@ -45,15 +45,18 @@ class SignUp extends React.Component {
                         Gender :
                         </Form.Label>
                         <Col style={{display:"flex"}} md="8" sm="10">
-                            <Col style={{display:"flex"}} md="3" sm="10">
-                                <Form.Check type="radio" id="gender" label="Male"/>
-                            </Col>
-                            <Col style={{display:"flex"}} md="3" sm="10">
-                                <Form.Check type="radio" id="gender" label="Female"/>
-                            </Col>
-                            <Col style={{display:"flex"}} md="3" sm="10">
-                                <Form.Check type="radio" id="gender" label="Others"/>
-                            </Col>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"/>
+                                <label class="form-check-label" for="inlineRadio1">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"/>
+                                <label class="form-check-label" for="inlineRadio2">Female</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"/>
+                                <label class="form-check-label" for="inlineRadio3">Others</label>
+                            </div>
                         </Col>
                     </Form.Group>
                     <Form.Group as={Row} className="formUsername" controlId="formPlaintextEmail">

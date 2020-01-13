@@ -5,7 +5,7 @@ import fb from '../images/facebook.png';
 import tw from '../images/twitter.png';
 import dr from '../images/dribbble.png';
 import lin from '../images/linkedIn.png';
-import logo from '../images/navigasi-logo.png';
+import logo from '../images/logoM.png';
 import { Link } from 'react-router-dom';
 
 function Footer () {
@@ -28,7 +28,7 @@ function Footer () {
         <div class="container">
           <div class="row">
             <div style={{ marginTop:'20px'}} class="col-md-9 col-sm-6 col-xs-12">
-              <p class="copyright-text" style={{textAlign: "center"}}>Copyright &copy; 2020 All Rights Reserved by <Link to="/">temanjalan</Link></p>
+              <p class="copyright-text" style={{textAlign: "center"}}>Copyright &copy; 2020 All Rights Reserved by <Link to="/">manggaleh.com</Link></p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
               <ul class="social-icons">

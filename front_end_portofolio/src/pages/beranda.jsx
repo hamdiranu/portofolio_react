@@ -6,7 +6,7 @@ import Navigasi from '../components/navigasi';
 import Carousel from '../components/carousel';
 import Iklan from '../components/adsPromo';
 import Footer from '../components/footer';
-import TopItem from '../components/topItem';
+import AllItem from '../components/allItem';
 
 class Beranda extends Component {
   componentDidMount = () => {
@@ -23,12 +23,12 @@ class Beranda extends Component {
             </div>
             <Iklan/>
           </div>
+          <div style={{textAlign:"center", marginTop:"20px", marginBottom:"20px"}}><h1>ALL ITEM</h1></div>
           <div style={{display:"flex"}}>
-            <TopItem/>
+            <AllItem/>
           </div>
           <div className="row">
             <div style={{border:"1px solid black"}}>
-
             </div>
           </div>
         </div>
