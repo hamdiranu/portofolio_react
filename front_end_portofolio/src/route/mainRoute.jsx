@@ -7,6 +7,7 @@ import Profile from '../pages/profil';
 import Login from '../pages/signIn';
 import Register from '../pages/register';
 import Beranda from '../pages/beranda';
+import ListItem from '../pages/listItem';
 
 const MainRoute = () => {
     return (
@@ -18,6 +19,7 @@ const MainRoute = () => {
                     <Route exact path='/profil' component={Profile} />
                     <Route exact path='/signIn' component={Login} />
                     <Route exact path='/signUp' component={Register} />
+                    <Route exact path='/listitem' component={ListItem} />
                     <Route component={NotMatch} />
                 </Switch>
             </BrowserRouter>

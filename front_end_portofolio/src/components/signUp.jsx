@@ -49,7 +49,7 @@ class SignUp extends React.Component {
                                 <Form.Check type="radio" id="gender" label="Male"/>
                             </Col>
                             <Col style={{display:"flex"}} md="3" sm="10">
-                                <Form.Check type="radio" id="gender" label="Feale"/>
+                                <Form.Check type="radio" id="gender" label="Female"/>
                             </Col>
                             <Col style={{display:"flex"}} md="3" sm="10">
                                 <Form.Check type="radio" id="gender" label="Others"/>
