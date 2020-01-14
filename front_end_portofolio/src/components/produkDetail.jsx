@@ -9,11 +9,17 @@ import { Button } from "react-bootstrap";
 class ProductDetail extends React.Component {
 
 	componentDidMount = () =>{
+		this.props.getCart()
 		const produk_id = this.props.match.params.id
 		store.setState({ id_product:produk_id });
 		console.log("cek state id", this.props.id_product)
 		this.props.getProductDetail()
 	}
+
+	postItem = async() => {
+		await this.props.postCart()
+		this.props.history.push("/cart")
+    }
 
     render() {
 
@@ -61,16 +67,11 @@ class ProductDetail extends React.Component {
 					</span>
 					</div>
 					<div style={{textAlign:"center", paddingTop:"10px"}}>
-					<select class="custom-select">
-						<option selected>1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-					</select>
+						<input style={{width:"40%"}} type="text" onChange={e => this.props.handleSelect(e)} name="qty" placeholder="1" />
 					</div>
 					<div style={{textAlign:"center", paddingTop:"10px"}}>
-					<Button variant="primary" type="submit" style={{marginBottom:"10px"}}>
-						<Link className="underlineHover" to="/cart">Add to Cart</Link>
+					<Button variant="primary" onClick={this.postItem} type="submit" style={{marginBottom:"10px"}}>
+						Add to Cart
 					</Button>
 					</div>
 				</div>
@@ -78,4 +79,4 @@ class ProductDetail extends React.Component {
 		</div>
   	)}
 }
-export default connect("product_detail, id_product",actions)(withRouter(ProductDetail));
+export default connect("cart_id, product_detail, id_product",actions)(withRouter(ProductDetail));

@@ -31,7 +31,8 @@ class SignIn extends React.Component {
                 store.setState({
                     "is_login": true,
                     "username": self.props.username,
-                    "user_id" : response.data.id
+                    "user_id" : response.data.id,
+                    "token" : response.data.token
                 });
                 // console.log("status login", this.props.is_login)
                 // console.log("status username", this.props.username)
@@ -97,4 +98,4 @@ class SignIn extends React.Component {
     }
 }
 
-export default connect("username, user_id, password, is_login",actions)(withRouter(SignIn));
+export default connect("token, username, user_id, password, is_login",actions)(withRouter(SignIn));

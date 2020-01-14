@@ -3,6 +3,7 @@ import axios from "axios";
 import moment from 'moment';
 
 const initialState = {
+    token:"",
     search : "",
     isLoading: true,
     keyword:'',
@@ -25,7 +26,11 @@ const initialState = {
     list_product_kategori: [],
     product_detail:{},
     kategori: "",
-    item_search:""
+    item_search:"",
+    total_to_cart: "",
+    cart_id:"",
+    total_harga_cart:"",
+    listCart:[]
 };
 
 export const store = createStore(initialState);
@@ -34,81 +39,21 @@ export const actions = store => ({
     handleSearch : (state,e) => {
         let value = e.target.value;
         store.setState({ item_search :value});
-        console.warn("cek state item search", store.getState().item_search)
     },
 
-    // Mendefinisikan fungsi axios untuk api Triposo
-    kategoriKota : async (state) => {
-        const url = state.apiUrl + state.idKota
-        await axios
-            .get(url)
-            .then(function(response) {
-                store.setState({ 
-                    listHasilTriposo: response.data.results[0], 
-                    listDestinasi: response.data.results[0].images,
-                    latitudeKota: response.data.results[0].coordinates.latitude,
-                    longitudeKota: response.data.results[0].coordinates.longitude,
-                    isLoading: false });
-                // handle success
-                console.log("cek isi response",response);
-            })
-            .catch(function(error) {
-                store.setState({ isLoading: false });
-                // handle error
-                console.log(error);
-            });
+    handleSelect : (state,e) => {
+        let value = e.target.value;
+        store.setState({ total_to_cart :value});
     },
-    
 
     changeInput: (state, event) => {
         store.setState({[event.target.name]: event.target.value});
-        console.log("cek input", event.target.name, event.target.value)
     },
 
     changeInputKategori: (state, event) => {
         store.setState({kategori: event.target.value, item_search:""});
-        console.log("cek input", event.target.value)
     },
 
-    postOriginAndDepartureDate: async (state, city) => {
-        const flyFrom = "&flyFrom=" + state.originPlace;
-        const dateFrom = "&dateFrom=" + state.departureDate;
-        const dateTo = "&dateTo=" + state.departureDate;
-        const url = state.kiwiUrl + flyFrom + dateFrom + dateTo;
-        const self = store;
-        const that = state;
-        await axios
-            .get(url)
-            .then(function (response) {
-                const responseList = response.data.data;
-                const filteredList = responseList.filter(data => {
-                    return data.cityTo === city;
-                }).filter(data => {
-                    const airlineList = that.airlineList;
-                    for (let i=0; i < 7; i++) {
-                        if (airlineList[i] === data.airlines[0]) {
-                            return true;
-                        }
-                    }
-                    return false;
-                });
-                self.setState({ ticketList: filteredList });
-            })
-            .catch(function (error) {
-                console.warn(error);
-            })
-    },
-
-    convertTimestamp: (state, time) => {
-        const date = new Date(time*1000);
-        const stringTime = moment(date).utcOffset("+0700").format("HH:mm:ss");
-        return stringTime;
-    },
-
-    // Atur kategori dinamis untuk idKotA
-    setCategory: (state, category) => {
-        return {idKotA : category}
-    },
     handleSignUp : async (state) => {
         const self = this
         const req = {
@@ -146,9 +91,6 @@ export const actions = store => ({
             .get("http://localhost:5000/item")
             .then(function(response){
             store.setState({ listAllProduct: response.data});
-
-            // handle success
-            // console.log(response.data);
             })
             .catch(function(error){
                 alert('invalid params')
@@ -161,9 +103,6 @@ export const actions = store => ({
             .get("http://localhost:5000/item/list?item_name="+item_search)
             .then(function(response){
             store.setState({ listAllProduct: response.data});
-
-            // handle success
-            // console.log(response.data);
             })
             .catch(function(error){
                 alert('invalid params')
@@ -176,9 +115,6 @@ export const actions = store => ({
             .get("http://localhost:5000/item/"+id_product)
             .then(function(response){
             store.setState({ product_detail: response.data});
-
-            // handle success
-            // console.log(response.data);
             })
             .catch(function(error){
                 alert('invalid id_product')
@@ -191,13 +127,72 @@ export const actions = store => ({
             .get("http://localhost:5000/user/"+user_id)
             .then(function(response){
             store.setState({ user_detail: response.data});
-
-            // handle success
-            // console.log(response.data);
             })
             .catch(function(error){
                 alert('invalid user_id')
             });
+    },
+
+    postCart : (state) =>{
+        axios.post("http://localhost:5000/cart",
+            {
+                product_id: state.id_product,
+                total_product: state.total_to_cart
+            },
+            {
+                headers: {
+                    "Authorization": "Bearer "+ state.token,
+                    "Content-Type": "application/json"
+                }
+            }
+        )
+        .then((response) => {
+            store.setState({cart_id:response.data.cart_id})
+            alert("Berhasil ditambahkan ke keranjang");
+        })
+        .catch((error) => {
+            alert("Terdapat kesalahan pada proses verifikasi, silahkan masuk kembali");
+            localStorage.removeItem("isLogin");
+            localStorage.removeItem("token");
+            store.setState({modalShow: true});
+        });
+    },
+
+    getCart : (state) => {
+        axios.get("http://localhost:5000/cart",
+            {
+                headers: {
+                    "Authorization": "Bearer "+ state.token,
+                    "Content-Type": "application/json"
+                }
+            }
+        )
+        .then((response) => {
+            var objekCart = response.data.filter((element) => element.status === false)
+            store.setState({total_harga_cart : objekCart[0].total_harga})
+            alert("Berhasil mendapatkan keranjang");
+        })
+        .catch((error) => {
+            alert("Terdapat kesalahan pada proses verifikasi, silahkan masuk kembali");
+            localStorage.removeItem("isLogin");
+            localStorage.removeItem("token");
+            store.setState({modalShow: true});
+        });
+
+    },
+
+    getCartDetail : (state) => {
+        axios.get("http://localhost:5000/cart/detail")
+        .then((response) => {
+            var objekCartDetail = response.data.filter((element) => element.cart_id === state.cart_id)
+            store.setState({listCart : objekCartDetail})
+        })
+        .catch((error) => {
+            alert("Terdapat kesalahan pada proses verifikasi, silahkan masuk kembali");
+            localStorage.removeItem("isLogin");
+            localStorage.removeItem("token");
+            store.setState({modalShow: true});
+        });
     }
 
 })

@@ -9,9 +9,6 @@ import Footer from '../components/footer';
 import AllItem from '../components/allItem';
 
 class Beranda extends Component {
-  componentDidMount = () => {
-    this.props.kategoriKota()
-  };
   render() {
     return (
       <div>
