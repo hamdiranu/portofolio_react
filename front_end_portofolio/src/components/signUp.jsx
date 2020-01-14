@@ -10,19 +10,19 @@ class SignUp extends React.Component {
 
     signUp = async () => {
         await this.props.handleSignUp()
-        console.log("status login",this.props.is_login)
-        if (this.props.is_login){
-            this.props.history.push("/")
-        }
+        this.props.history.push("/")
     }
 
-
+    submitHandler = event => {
+        event.preventDefault()
+    }
+    
     render() {
         console.log ("cek state", this.props);
         return (
         <div className="wrapper fadeInDown">
             <div id="formRegister">
-                <Form style={{paddingTop:"10px"}}>
+                <Form onSubmit={this.submitHandler} style={{paddingTop:"10px"}}>
                     {/* <div className style={{textAlign:"center"}}></div> */}
                     <Form.Group as={Row} className="formUsername" >
                         <Form.Label column md="1" sm="1"></Form.Label>
@@ -120,10 +120,10 @@ class SignUp extends React.Component {
                         <Form.Check type="checkbox" label="I Agree to The Terms and Conditions" style={{marginTop:"10px"}} />
                     </Form.Group>
                     <input 
-                            type="submit" 
-                            className="fadeIn fourth" 
-                            value="Register" 
-                            onClick={this.signUp}/>
+                        type="submit" 
+                        className="fadeIn fourth" 
+                        value="Register" 
+                        onClick={this.signUp}/>
                 </Form>
                 <div id="formFooter">
                 <Link className="underlineHover" to="/">Back to Home</Link>

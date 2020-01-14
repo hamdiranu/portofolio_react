@@ -39,9 +39,9 @@ class Navigasi extends React.Component {
                     <Form inline>
                     <select class="custom-select">
                         <option selected>All Category</option>
-                        <option value="1">Elektronik</option>
-                        <option value="2">Fashion</option>
-                        <option value="3">Otomotif</option>
+                        <option value="ELEKTRONIK">Elektronik</option>
+                        <option value="FASHION">Fashion</option>
+                        <option value="OTOMOTIF">Otomotif</option>
                     </select>
                     <FormControl type="text" onChange={e => this.handleSearchContent(e)} placeholder="Search" className="mr-sm-2" />
                     <Button variant="secondary"><Link to="/search/item">Search</Link></Button>
@@ -68,9 +68,9 @@ class Navigasi extends React.Component {
                         <Form inline>
                         <select class="custom-select">
                             <option selected>All Category</option>
-                            <option value="1">Elektronik</option>
-                            <option value="2">Fashion</option>
-                            <option value="3">Otomotif</option>
+                            <option value="ELEKTRONIK">Elektronik</option>
+                            <option value="FASHION">Fashion</option>
+                            <option value="OTOMOTIF">Otomotif</option>
                         </select>
                         <FormControl type="text" onChange={e => this.handleSearchContent(e)} placeholder="Search" className="mr-sm-2" />
                         <Button variant="secondary"><Link to="/search/item">Search</Link></Button>

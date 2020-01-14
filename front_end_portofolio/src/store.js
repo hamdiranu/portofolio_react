@@ -133,9 +133,6 @@ export const actions = store => ({
         }
         await axios(req)
         .then(response => {
-            store.setState({
-                "is_login": true
-            });
             alert("Sign Up Success")
         })          
         .catch(error => {

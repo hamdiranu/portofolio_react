@@ -7,6 +7,8 @@ import slider2 from '../images/slider2.jpg';
 import slider3 from '../images/slider3.jpg';
 class Carousel extends React.Component {
 
+    
+
     render() {
         return (
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

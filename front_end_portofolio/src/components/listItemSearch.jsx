@@ -18,7 +18,6 @@ class listItemKategori extends React.Component {
 		}
 	}
 
-
     render() {
 		if (this.props.item_search===""){
 			this.props.getAllProduct()
@@ -28,8 +27,6 @@ class listItemKategori extends React.Component {
 			this.props.getSearchProduct()
 			var list_product = this.props.listAllProduct
 		}
-		console.log("cek state search",this.props.item_search)
-		console.log("cek list item",list_product)
 
 		return (
 			<div className="container-fluid">
