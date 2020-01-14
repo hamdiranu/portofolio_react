@@ -23,7 +23,7 @@ class AllItem extends React.Component {
 			{list_product.map((isi,i)=>(
 				<div className="col-md-4 kotak_barang">
 				<div className="col-md-12">
-					<Link className="underlineHover" to="/product"><img style={{borderRadius:"10px"}} src={isi.gambar_1} className="fotoBarang" alt=""/></Link>
+					<Link className="underlineHover" to={`/product/${isi.id}`}><img style={{borderRadius:"10px"}} src={isi.gambar_1} className="fotoBarang" alt=""/></Link>
 				</div>
 				<div className="col-md-12" style={{paddingBottom:"10px",paddingTop:"10px"}}><span>Rp {isi.price}</span></div>
 			<div className="col-md-12"><span>{isi.item_name}</span></div>

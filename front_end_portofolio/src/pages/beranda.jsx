@@ -13,9 +13,6 @@ class Beranda extends Component {
     this.props.kategoriKota()
   };
   render() {
-    if (this.props.is_login) {
-      alert("login sukses")
-    }
     return (
       <div>
         <Navigasi/>

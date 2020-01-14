@@ -18,7 +18,10 @@ const initialState = {
     phone_number : "",
     password : "",
     email: "",
-    listAllProduct: []
+    listAllProduct: [],
+    id_product: "",
+    list_product_kategori: [],
+    product_detail:{},
 };
 
 export const store = createStore(initialState);
@@ -144,6 +147,21 @@ export const actions = store => ({
             .catch(function(error){
                 alert('invalid username or password')
             });
-        }
+    },
+
+    getProductDetail : (state) =>{
+        const id_product = state.id_product
+        axios
+            .get("http://localhost:5000/item/"+id_product)
+            .then(function(response){
+            store.setState({ product_detail: response.data});
+
+            // handle success
+            // console.log(response.data);
+            })
+            .catch(function(error){
+                alert('invalid username or password')
+            });
+    }
 
 })

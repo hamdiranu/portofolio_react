@@ -7,9 +7,22 @@ import '../styles/daftar.css';
 import '../styles/checkout.css';
 import { Button } from "react-bootstrap";
 import { withRouter, Link } from 'react-router-dom'
+import { connect } from 'unistore/react';
+import { store, actions } from '../store';
 
 class ProductDetail extends Component {
+
+  componentDidMount = () =>{
+    const produk_id = this.props.match.params.id
+    store.setState({ id_product:produk_id });
+    console.log("cek state id", this.props.id_product)
+    this.props.getProductDetail()
+  }
+
+
   render() {
+    const detail_product=this.props.product_detail
+    console.log("isi detail produk",detail_product)
     return (
       <div className ="bodyCheckout">
         <Navigasi/>
@@ -17,30 +30,30 @@ class ProductDetail extends Component {
           <div className="row">
             <div className="col-md-6" style={{textAlign:"center"}}>
               <div className="row">
-                <div className="col-md-12" style={{textAlign:"center", width:"100%",height:"250px"}}><img style={{width:"160px",height:"230px"}} src={dummyBarang} className="fotoBarang" alt=""/></div>
-                <div className="col-md-4"><img src={dummyBarang} className="fotoBarang" alt=""/></div>
-                <div className="col-md-4"><img src={dummyBarang} className="fotoBarang" alt=""/></div>
-                <div className="col-md-4"><img src={dummyBarang} className="fotoBarang" alt=""/></div>
+                <div className="col-md-12" style={{textAlign:"center", width:"100%",height:"250px"}}><img style={{width:"160px",height:"230px",borderRadius:"10px"}} src={detail_product.gambar_1} className="fotoBarang" alt=""/></div>
+                <div className="col-md-4"><img style={{borderRadius:"10px"}} src={detail_product.gambar_2} className="fotoBarang" alt=""/></div>
+                <div className="col-md-4"><img style={{borderRadius:"10px"}} src={detail_product.gambar_3} className="fotoBarang" alt=""/></div>
+                <div className="col-md-4"><img style={{borderRadius:"10px"}} src={detail_product.gambar_4} className="fotoBarang" alt=""/></div>
               </div>
             </div>
             <div className="col-md-6">
               <div>
-                <h3>Product Name</h3>
+                <h3>{detail_product.item_name}</h3>
               </div>
               <div>
-                <h4>Rp 10.000.000</h4>
+                <h4>Rp {detail_product.price}</h4>
               </div>
               <div>
                 <span>Spesifikasi :</span>
                 <ol>
                   <li>
-                    <span>a</span>
+                    <span>{detail_product.spesifikasi_1}</span>
                   </li>
                   <li>
-                    <span>b</span>
+                    <span>{detail_product.spesifikasi_2}</span>
                   </li>
                   <li>
-                    <span>c</span>
+                    <span>{detail_product.spesifikasi_3}</span>
                   </li>
                 </ol>
               </div>
@@ -49,7 +62,7 @@ class ProductDetail extends Component {
               </div>
               <div>
                 <span>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                {detail_product.deskripsi}
                 </span>
               </div>
               <div style={{textAlign:"center", paddingTop:"10px"}}>
@@ -74,4 +87,4 @@ class ProductDetail extends Component {
   };
 }
 
-export default ProductDetail;
+export default connect("product_detail, id_product",actions)(withRouter(ProductDetail));
