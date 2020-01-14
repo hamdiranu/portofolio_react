@@ -8,116 +8,122 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 
 class SignUp extends React.Component {
 
-    doLogin = async () => {
-        await this.props.postLogin()
+    signUp = async () => {
+        await this.props.handleSignUp()
+        console.warn('cek string', this.props.is_login)
         if (this.props.is_login){
-            this.props.history.push("/profil");
+            this.props.history.push("/")
         }
     }
 
+
     render() {
+        console.log ("cek state", this.props);
         return (
         <div className="wrapper fadeInDown">
             <div id="formRegister">
                 <Form style={{paddingTop:"10px"}}>
-                    <Form.Group as={Row} className="formUsername" controlId="formPlaintextEmail">
+                    {/* <div className style={{textAlign:"center"}}></div> */}
+                    <Form.Group as={Row} className="formUsername" >
                         <Form.Label column md="1" sm="1"></Form.Label>
                         <Form.Label column md="2" sm="1">
                         Username :
                         </Form.Label>
                         <Col md="5" sm="10">
-                        <Form.Control type="text" placeholder="Username" />
+                        <input type="text" onChange={e => this.props.changeInput(e)} name="username" placeholder="Username" />
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="formUsername" controlId="formPlaintextEmail">
+                    <Form.Group as={Row} className="formUsername" >
                         <Form.Label column md="1" sm="1"></Form.Label>
                         <Form.Label column md="2" sm="1">
                         Name :
                         </Form.Label>
                         <Col style={{display:"flex"}} md="7" sm="10">
-                        <Form.Control type="text" placeholder="First Name" />
-                        <Form.Control type="text" placeholder="Last Name" />
+                        <input type="text" onChange={e => this.props.changeInput(e)} name="first_name" placeholder="First Name" />
+                        <input type="text" onChange={e => this.props.changeInput(e)} name="last_name" placeholder="Last Name" />
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="formUsername" controlId="formPlaintextEmail">
+                    <Form.Group as={Row} className="formUsername" >
                         <Form.Label column md="1" sm="1"></Form.Label>
                         <Form.Label column md="2" sm="1">
                         Gender :
                         </Form.Label>
                         <Col style={{display:"flex"}} md="8" sm="10">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"/>
-                                <label class="form-check-label" for="inlineRadio1">Male</label>
+                            <div className="form-check form-check-inline">
+                                <input onClick={e => this.props.changeInput(e)} type="radio" name="gender" value="Male"/>
+                                <label className="form-check-label" >Male</label>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"/>
-                                <label class="form-check-label" for="inlineRadio2">Female</label>
+                            <div className="form-check form-check-inline">
+                                <input onClick={e => this.props.changeInput(e)} type="radio" name="gender" value="Female"/>
+                                <label className="form-check-label" >Female</label>
                             </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"/>
-                                <label class="form-check-label" for="inlineRadio3">Others</label>
+                            <div className="form-check form-check-inline">
+                                <input onClick={e => this.props.changeInput(e)} type="radio" name="gender" value="Others"/>
+                                <label className="form-check-label" >Others</label>
                             </div>
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="formUsername" controlId="formPlaintextEmail">
+                    <Form.Group as={Row} className="formUsername" >
                         <Form.Label column md="1" sm="1"></Form.Label>
                         <Form.Label column md="2" sm="1">
                         Date Of Birth :
                         </Form.Label>
                         <Col md="5" sm="10">
-                        <Form.Control type="text" placeholder="Username" />
+                        <input type="text" onChange={e => this.props.changeInput(e)} name="date_of_birth" placeholder="Date of Birth" />
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="formUsername" controlId="formPlaintextEmail">
+                    <Form.Group as={Row} className="formUsername" >
                         <Form.Label column md="1" sm="1"></Form.Label>
                         <Form.Label column md="2" sm="1">
                         Address :
                         </Form.Label>
                         <Col md="4" sm="10"> 
-                        <Form.Control type="text" className="addressBar" style={{width:"90%"}} placeholder="Address" />
+                        <input type="text" onChange={e => this.props.changeInput(e)} name="address" className="addressBar" style={{width:"90%"}} placeholder="Address" />
                         </Col>
                         <Col md="4" sm="12">
                             <Form.Label column md="4" sm="1">City : </Form.Label>
-                            <Form.Control type="text" style={{width:"50%"}} placeholder="City" />
+                            <input type="text" onChange={e => this.props.changeInput(e)} name="city" style={{width:"50%"}} placeholder="City" />
                             <Form.Label column md="4" sm="1">Zip Code : </Form.Label>
-                            <Form.Control type="text" style={{width:"50%"}} placeholder="Zip Code" />
+                            <input type="text" onChange={e => this.props.changeInput(e)} name="zip_code"  style={{width:"50%"}} placeholder="Zip Code" />
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="formUsername" controlId="formPlaintextEmail">
+                    <Form.Group as={Row} className="formUsername" >
                         <Form.Label column md="1" sm="1"></Form.Label>
                         <Form.Label column md="2" sm="1">
                         Phone Number :
                         </Form.Label>
                         <Col md="5" sm="10">
-                        <Form.Control type="text" placeholder="Username" />
+                        <input type="text" onChange={e => this.props.changeInput(e)} name="phone_number"  placeholder="Username" />
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="formUsername" controlId="formPlaintextEmail">
+                    <Form.Group as={Row} className="formUsername">
                         <Form.Label column md="1" sm="1"></Form.Label>
                         <Form.Label column md="2" sm="1">
                         Password :
                         </Form.Label>
                         <Col style={{display:"flex"}} md="7" sm="10">
-                        <Form.Control type="password" placeholder="Password" />
-                        <Form.Control type="password" placeholder="Konfirmasi Password" />
+                        <input type="password" onChange={e => this.props.changeInput(e)} name="password"  placeholder="Password" />
+                        <input type="password" placeholder="Konfirmasi Password" />
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="formUsername" controlId="formPlaintextEmail">
+                    <Form.Group as={Row} className="formUsername" >
                         <Form.Label column md="1" sm="1"></Form.Label>
                         <Form.Label column md="2" sm="1">
                         Email :
                         </Form.Label>
                         <Col style={{display:"flex"}} md="7" sm="12">
-                        <Form.Control type="email" className="emailInput" placeholder="Email" />
-                        <Form.Control type="email" placeholder="Konfirmasi Email" />
+                        <input type="email" onChange={e => this.props.changeInput(e)} name="email" className="emailInput" placeholder="Email" />
+                        <input type="email" placeholder="Konfirmasi Email" />
                         </Col>
                     </Form.Group>
                     <Form.Group id="formGridCheckbox">
                         <Form.Check type="checkbox" label="I Agree to The Terms and Conditions" style={{marginTop:"10px"}} />
                     </Form.Group>
-                    <Button variant="primary" type="submit" style={{marginBottom:"10px"}}>
-                        Submit
-                    </Button>
+                    <input 
+                            type="submit" 
+                            className="fadeIn fourth" 
+                            value="Register" 
+                            onClick={this.signUp}/>
                 </Form>
                 <div id="formFooter">
                 <Link className="underlineHover" to="/">Back to Home</Link>
@@ -128,4 +134,4 @@ class SignUp extends React.Component {
     }
 }
 
-export default connect("username, password, is_login",actions)(withRouter(SignUp));
+export default connect("username, first_name, last_name, gender, date_of_birth, address, city, zip_code, phone_number, password, email, is_login",actions)(withRouter(SignUp));

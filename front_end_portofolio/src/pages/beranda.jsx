@@ -13,6 +13,9 @@ class Beranda extends Component {
     this.props.kategoriKota()
   };
   render() {
+    if (this.props.is_login) {
+      alert("login sukses")
+    }
     return (
       <div>
         <Navigasi/>
@@ -38,4 +41,4 @@ class Beranda extends Component {
   };
 }
 
-export default connect( "listDestinasi, listHasilTriposo", actions )(withRouter(Beranda));
+export default connect( "is_login", actions )(withRouter(Beranda));

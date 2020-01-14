@@ -4,9 +4,44 @@ import '../styles/bootstrap.min.css'
 import logo from '../images/logoM.png';
 import { withRouter, Link } from 'react-router-dom'
 import { connect } from 'unistore/react'
-import { actions } from '../store'
+import { store, actions } from '../store'
+import axios from "axios";
 
 class SignIn extends React.Component {
+
+    handleLogin = () => {
+        const self = this
+        const req = {
+            method: "post",
+            url: "http://localhost:5000/token",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            data: {
+              username: self.props.username,
+              password: self.props.password
+            }
+        }
+        axios(req)
+        .then(function(response) {
+            if (response.data.hasOwnProperty('token')){
+                localStorage.setItem('username', self.props.username)
+                localStorage.setItem('token', response.data.token)
+                localStorage.setItem('is_login', true)
+                store.setState({
+                    "is_login": true,
+                    "username": self.props.username
+                });
+                // console.log("status login", this.props.is_login)
+                // console.log("status username", this.props.username)
+                self.props.history.push("/")
+            }           
+            console.log("response data",response.data)
+        })
+        .catch(function(error) {
+            alert('invalid username or password')
+        })
+    }
 
     doLogin = async () => {
         await this.props.postLogin()
@@ -28,7 +63,7 @@ class SignIn extends React.Component {
                     <form onSubmit={e => e.preventDefault()}>
                         <input 
                         type="text" 
-                        id="login" 
+                        id="username" 
                         className="col-md-12 col-sm-12 fadeIn second" 
                         name="username" 
                         placeholder="Your Username"
@@ -45,7 +80,7 @@ class SignIn extends React.Component {
                         className="fadeIn fourth" 
                         value="Log In"
                         style={{marginBottom:"15px", marginTop:"10px"}}
-                        onClick={this.doLogin}/>
+                        onClick={this.handleLogin}/>
                     </form>
                 <div style={{marginBottom:"10px"}}>
                     <span>Doesn't have account? <Link className="underlineHover" to="/signUp">Sign up</Link> now</span>

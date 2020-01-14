@@ -3,42 +3,35 @@ import '../styles/footer.css';
 import '../styles/bootstrap.min.css';
 import dummyBarang from '../images/dummy_barang.png';
 import { withRouter, Link } from 'react-router-dom'
+import { connect } from 'unistore/react';
+import { store, actions } from '../store';
 
-function AllItem () {
-  return (
+class AllItem extends React.Component {
+
+	componentDidMount = async ()=> {
+		this.props.getAllProduct()
+	}
+
+    render() {
+
+		const list_product = this.props.listAllProduct
+		console.log("cek list item",list_product)
+
+	return (
 	<div class="container">
 		<div className="row">
-			<div className="col-md-4 kotak_barang">
+			{list_product.map((isi,i)=>(
+				<div className="col-md-4 kotak_barang">
 				<div className="col-md-12">
-					<Link className="underlineHover" to="/product"><img src={dummyBarang} className="fotoBarang" alt=""/></Link>
+					<Link className="underlineHover" to="/product"><img style={{borderRadius:"10px"}} src={isi.gambar_1} className="fotoBarang" alt=""/></Link>
 				</div>
-				<div className="col-md-12"><span>Rp 6.000.000</span></div>
-				<div className="col-md-12"><span>Iphone Xs</span></div>
+				<div className="col-md-12" style={{paddingBottom:"10px",paddingTop:"10px"}}><span>Rp {isi.price}</span></div>
+			<div className="col-md-12"><span>{isi.item_name}</span></div>
 			</div>
-			<div className="col-md-4 kotak_barang">
-				<div className="col-md-12">
-					<Link className="underlineHover" to="/product"><img src={dummyBarang} className="fotoBarang" alt=""/></Link>
-				</div>
-				<div className="col-md-12"><span>Rp 6.000.000</span></div>
-				<div className="col-md-12"><span>Iphone Xs</span></div>
-			</div>
-			<div className="col-md-4 kotak_barang">
-				<div className="col-md-12">
-					<Link className="underlineHover" to="/product"><img src={dummyBarang} className="fotoBarang" alt=""/></Link>
-				</div>
-				<div className="col-md-12"><span>Rp 6.000.000</span></div>
-				<div className="col-md-12"><span>Iphone Xs</span></div>
-			</div>
-			<div className="col-md-4 kotak_barang">
-				<div className="col-md-12">
-					<Link className="underlineHover" to="/product"><img src={dummyBarang} className="fotoBarang" alt=""/></Link>
-				</div>
-				<div className="col-md-12"><span>Rp 6.000.000</span></div>
-				<div className="col-md-12"><span>Iphone Xs</span></div>
-			</div>
+			))}
 		</div>
 	</div>
   )  
 }
-
-export default AllItem;
+}
+export default connect("listAllProduct",actions)(withRouter(AllItem));

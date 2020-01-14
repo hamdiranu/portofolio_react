@@ -5,11 +5,20 @@ import moment from 'moment';
 const initialState = {
     search : "",
     isLoading: true,
-    username:'',
-    email:'',
-    password:'',
     keyword:'',
-    is_login: false
+    is_login: false,
+    username : "",
+    first_name : "",
+    last_name : "",
+    gender : "",
+    date_of_birth : "",
+    address : "",
+    city : "",
+    zip_code : "",
+    phone_number : "",
+    password : "",
+    email: "",
+    listAllProduct: []
 };
 
 export const store = createStore(initialState);
@@ -42,9 +51,11 @@ export const actions = store => ({
                 console.log(error);
             });
     },
-  
+    
+
     changeInput: (state, event) => {
         store.setState({[event.target.name]: event.target.value});
+        console.log("cek input", event.target.name, event.target.value)
     },
 
     postOriginAndDepartureDate: async (state, city) => {
@@ -86,29 +97,53 @@ export const actions = store => ({
     setCategory: (state, category) => {
         return {idKotA : category}
     },
-    
-    postLogin : async (state) => {
-        const username = store.getState('username')
-        const password = store.getState('password')
-        const mydata = {
-            username: username,
-            password: password
-        };
-        const test = await axios
-            .post("https://reactportofolio.free.beeceptor.com/masuk", mydata)
-            .then(response => {
-                return response
-            })
-            .catch(error => {
-                return false
-        })
-        if (test) {
+    handleSignUp : async (state) => {
+        console.log("cek state", store.getState())
+        const self = this
+        const req = {
+            method: "post",
+            url: "http://localhost:5000/user",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            data: {
+              username : state.username,
+              first_name : state.fullname,
+              last_name : state.fullname,
+              gender : state.gender,
+              date_of_birth : state.date_of_birth,
+              address : state.address,
+              city : state.city,
+              zip_code : state.zip_code,
+              phone_number : state.phoneNumber,
+              password : state.password,
+              email: state.email,
+            }
+        }
+        await axios(req)
+        .then(response => {
             store.setState({
-                "accKey": test.data.accKey,
-                "is_login": true,
-                "email": test.data.email,
-                "username": test.data.username
+                "is_login": true
+            });
+        })          
+        .catch(error => {
+            return false
+        })
+    },
+
+
+    getAllProduct : () =>{
+        axios
+            .get("http://localhost:5000/item")
+            .then(function(response){
+            store.setState({ listAllProduct: response.data});
+
+            // handle success
+            // console.log(response.data);
+            })
+            .catch(function(error){
+                alert('invalid username or password')
             });
         }
-    }
+
 })
