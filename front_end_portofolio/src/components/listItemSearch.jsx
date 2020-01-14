@@ -7,15 +7,28 @@ import { connect } from 'unistore/react';
 import { store, actions } from '../store';
 import { Form, Button, Row, Col } from "react-bootstrap";
 
-class ListItemSearch extends React.Component {
+class listItemKategori extends React.Component {
 
 	componentDidMount = async ()=> {
-		this.props.getAllProduct()
+		if (this.props.item_search===""){
+			this.props.getAllProduct()
+		}
+		else{
+			this.props.getSearchProduct()
+		}
 	}
 
+
     render() {
-		
-		const list_product = this.props.listAllProduct.filter((element) => element.kategori === this.props.kategori)
+		if (this.props.item_search===""){
+			this.props.getAllProduct()
+			var list_product = this.props.listAllProduct.filter((element) => element.kategori === this.props.kategori)
+		}
+		else{
+			this.props.getSearchProduct()
+			var list_product = this.props.listAllProduct
+		}
+		console.log("cek state search",this.props.item_search)
 		console.log("cek list item",list_product)
 
 		return (
@@ -48,7 +61,7 @@ class ListItemSearch extends React.Component {
 						{list_product.map((isi,i)=>(
 							<div className="col-md-4 kotak_barang">
 								<div className="col-md-12">
-								<img src={isi.gambar_1} className="fotoBarang" alt=""/>
+									<Link className="underlineHover" to={`/product/${isi.id}`}><img style={{borderRadius:"10px"}} src={isi.gambar_1} className="fotoBarang" alt=""/></Link>
 								</div>
 								<div className="col-md-12"><span>Rp {isi.price}</span></div>
 								<div className="col-md-12"><span>{isi.item_name}</span></div>
@@ -61,4 +74,4 @@ class ListItemSearch extends React.Component {
   		)  
 	}
 }
-export default connect("listAllProduct, kategori",actions)(withRouter(ListItemSearch));
+export default connect("listAllProduct, item_search, kategori",actions)(withRouter(listItemKategori));

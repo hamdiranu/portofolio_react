@@ -43,8 +43,8 @@ class Navigasi extends React.Component {
                         <option value="2">Fashion</option>
                         <option value="3">Otomotif</option>
                     </select>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                    <Button variant="secondary" >Search</Button>
+                    <FormControl type="text" onChange={e => this.handleSearchContent(e)} placeholder="Search" className="mr-sm-2" />
+                    <Button variant="secondary"><Link to="/search/item">Search</Link></Button>
                     </Form>
                 </Navbar.Collapse>
                 <Navbar.Brand href="#home"><img className="mr-lg-4 logo-react" src={cartLogo} alt="" /></Navbar.Brand>
@@ -72,8 +72,8 @@ class Navigasi extends React.Component {
                             <option value="2">Fashion</option>
                             <option value="3">Otomotif</option>
                         </select>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="secondary">Search</Button>
+                        <FormControl type="text" onChange={e => this.handleSearchContent(e)} placeholder="Search" className="mr-sm-2" />
+                        <Button variant="secondary"><Link to="/search/item">Search</Link></Button>
                         </Form>
                     </Navbar.Collapse>
                     <ButtonGroup className="mr-lg-4" aria-label="Second group">
@@ -91,4 +91,4 @@ class Navigasi extends React.Component {
     }
 }
 
-export default connect("is_login, isLoading, search, idKota",actions)(withRouter(Navigasi));
+export default connect("item_search, is_login, isLoading, search, idKota",actions)(withRouter(Navigasi));

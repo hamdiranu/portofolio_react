@@ -8,6 +8,7 @@ import Login from '../pages/signIn';
 import Register from '../pages/register';
 import Beranda from '../pages/beranda';
 import ListItem from '../pages/listItem';
+import ListItemSearch from '../pages/listItemSearch';
 import Checkout from '../pages/checkout';
 import Payment from '../pages/payment';
 import ProductDetail from '../pages/productDetail';
@@ -24,6 +25,7 @@ const MainRoute = () => {
                     <Route exact path='/signIn' component={Login} />
                     <Route exact path='/signUp' component={Register} />
                     <Route exact path='/listitem' component={ListItem} />
+                    <Route exact path='/search/item' component={ListItemSearch} />
                     <Route exact path='/checkout' component={Checkout} />
                     <Route exact path='/payment' component={Payment} />
                     <Route exact path='/product/:id' component={ProductDetail} />

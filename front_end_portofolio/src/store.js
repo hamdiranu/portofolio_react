@@ -8,6 +8,8 @@ const initialState = {
     keyword:'',
     is_login: false,
     username : "",
+    user_id : "",
+    user_detail :{},
     first_name : "",
     last_name : "",
     gender : "",
@@ -22,6 +24,8 @@ const initialState = {
     id_product: "",
     list_product_kategori: [],
     product_detail:{},
+    kategori: "",
+    item_search:""
 };
 
 export const store = createStore(initialState);
@@ -29,8 +33,8 @@ export const store = createStore(initialState);
 export const actions = store => ({
     handleSearch : (state,e) => {
         let value = e.target.value;
-        store.setState({ search :value, idKota:value});
-        console.warn("cek store", store.getState())
+        store.setState({ item_search :value});
+        console.warn("cek state item search", store.getState().item_search)
     },
 
     // Mendefinisikan fungsi axios untuk api Triposo
@@ -59,6 +63,11 @@ export const actions = store => ({
     changeInput: (state, event) => {
         store.setState({[event.target.name]: event.target.value});
         console.log("cek input", event.target.name, event.target.value)
+    },
+
+    changeInputKategori: (state, event) => {
+        store.setState({kategori: event.target.value, item_search:""});
+        console.log("cek input", event.target.value)
     },
 
     postOriginAndDepartureDate: async (state, city) => {
@@ -101,7 +110,6 @@ export const actions = store => ({
         return {idKotA : category}
     },
     handleSignUp : async (state) => {
-        console.log("cek state", store.getState())
         const self = this
         const req = {
             method: "post",
@@ -111,14 +119,14 @@ export const actions = store => ({
             },
             data: {
               username : state.username,
-              first_name : state.fullname,
-              last_name : state.fullname,
+              first_name : state.first_name,
+              last_name : state.last_name,
               gender : state.gender,
               date_of_birth : state.date_of_birth,
               address : state.address,
               city : state.city,
               zip_code : state.zip_code,
-              phone_number : state.phoneNumber,
+              phone_number : state.phone_number,
               password : state.password,
               email: state.email,
             }
@@ -128,6 +136,7 @@ export const actions = store => ({
             store.setState({
                 "is_login": true
             });
+            alert("Sign Up Success")
         })          
         .catch(error => {
             return false
@@ -145,7 +154,22 @@ export const actions = store => ({
             // console.log(response.data);
             })
             .catch(function(error){
-                alert('invalid username or password')
+                alert('invalid params')
+            });
+    },
+
+    getSearchProduct : (state) =>{
+        const item_search = state.item_search
+        axios
+            .get("http://localhost:5000/item/list?item_name="+item_search)
+            .then(function(response){
+            store.setState({ listAllProduct: response.data});
+
+            // handle success
+            // console.log(response.data);
+            })
+            .catch(function(error){
+                alert('invalid params')
             });
     },
 
@@ -160,7 +184,22 @@ export const actions = store => ({
             // console.log(response.data);
             })
             .catch(function(error){
-                alert('invalid username or password')
+                alert('invalid id_product')
+            });
+    },
+
+    getUserDetail : (state) =>{
+        const user_id = state.user_id
+        axios
+            .get("http://localhost:5000/user/"+user_id)
+            .then(function(response){
+            store.setState({ user_detail: response.data});
+
+            // handle success
+            // console.log(response.data);
+            })
+            .catch(function(error){
+                alert('invalid user_id')
             });
     }
 

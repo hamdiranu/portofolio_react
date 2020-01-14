@@ -10,7 +10,7 @@ class SignUp extends React.Component {
 
     signUp = async () => {
         await this.props.handleSignUp()
-        console.warn('cek string', this.props.is_login)
+        console.log("status login",this.props.is_login)
         if (this.props.is_login){
             this.props.history.push("/")
         }
