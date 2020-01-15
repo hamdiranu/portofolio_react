@@ -37,8 +37,8 @@ class Navigasi extends React.Component {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Form inline>
-                    <select class="custom-select">
-                        <option selected>All Category</option>
+                    <select onChange={e => this.props.changeInput(e)} name="kategori" class="custom-select">
+                        <option value=" " selected>All Category</option>
                         <option value="ELEKTRONIK">Elektronik</option>
                         <option value="FASHION">Fashion</option>
                         <option value="OTOMOTIF">Otomotif</option>
@@ -66,8 +66,8 @@ class Navigasi extends React.Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Form inline>
-                        <select class="custom-select">
-                            <option selected>All Category</option>
+                        <select onChange={e => this.props.changeInput(e)} name="kategori" class="custom-select">
+                            <option value=" " selected>All Category</option>
                             <option value="ELEKTRONIK">Elektronik</option>
                             <option value="FASHION">Fashion</option>
                             <option value="OTOMOTIF">Otomotif</option>

@@ -4,7 +4,7 @@ import '../styles/badanprofil.css'
 import { Redirect } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 import { connect } from 'unistore/react';
-import photo from '../images/profil-main.jpg'
+import photo from '../images/patrick.png'
 import { store, actions } from '../store';
 
 class BodyProfile extends React.Component {
@@ -28,7 +28,7 @@ class BodyProfile extends React.Component {
           <div className="container-fluid">
             <div className="row profileBody-row"> 
               <div className="col-md-4">
-                <div className="kotak_foto_profil" style={{border:"1px solid black"}}>
+                <div className="kotak_foto_profil">
                   <div style={{textAlign:"center"}}>
                     <p>
                       <img style={{borderRadius:"10%", width:"50%", height:"50%", paddingTop:"10px"}} src={photo}></img>
@@ -41,7 +41,7 @@ class BodyProfile extends React.Component {
               </div>
               {/* <div className="col-md-1"></div> */}
               <div className="col-md-7">
-                <div className="info_profil" style={{border:"1px solid black"}}>
+                <div className="info_profil" style={{border:"1px solid black", backgroundColor:"#7F7D7E", color:"beige"}}>
                   <div className='col-md-12'>
                     <p className='name' style={{
                         textAlign: 'center',fontSize:"35px", paddingTop:"15px"

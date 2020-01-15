@@ -56,12 +56,14 @@ class listItemKategori extends React.Component {
 					<div className="col-md-7">
 						<div className="row" style={{ display:"flex", marginTop:"20px"}}>
 						{list_product.map((isi,i)=>(
-							<div className="col-md-4 kotak_barang">
-								<div className="col-md-12">
-									<Link className="underlineHover" to={`/product/${isi.id}`}><img style={{borderRadius:"10px"}} src={isi.gambar_1} className="fotoBarang" alt=""/></Link>
+							<div className="col-md-4">
+								<div className="kotak_barang">
+									<div className="col-md-12">
+										<Link className="underlineHover" to={`/product/${isi.id}`}><img style={{borderRadius:"10px"}} src={isi.gambar_1} className="fotoBarang" alt=""/></Link>
+									</div>
+									<div className="col-md-12"><span>Rp {isi.price}</span></div>
+									<div className="col-md-12"><span>{isi.item_name}</span></div>
 								</div>
-								<div className="col-md-12"><span>Rp {isi.price}</span></div>
-								<div className="col-md-12"><span>{isi.item_name}</span></div>
 							</div>
 						))}
 						</div>
