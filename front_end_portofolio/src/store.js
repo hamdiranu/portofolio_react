@@ -31,12 +31,24 @@ const initialState = {
     cart_id:"",
     total_harga_cart:"",
     listCart:[],
-    total_barang_cart:""
+    total_barang_cart:"",
+    nama_penerima_checkout:"",
+    alamat_checkout:"",
+    kode_pos_checkout:"",
+    nomor_telepon_checkout:"",
+    metode_pengiriman_checkout: "",
+    cardholder_payment:"",
+    card_number_payment:"",
+    security_code_payment:"",
+    expired_month_payment:"",
+    expired_year_payment:"",
+    status_cod_payment: false
 };
 
 export const store = createStore(initialState);
 
 export const actions = store => ({
+    
     handleSearch : (state,e) => {
         let value = e.target.value;
         store.setState({ item_search :value});
@@ -47,14 +59,18 @@ export const actions = store => ({
         store.setState({ total_to_cart :value});
     },
 
+    // Fungsi untuk mendapatkan informasi pada search/input bar
     changeInput: (state, event) => {
         store.setState({[event.target.name]: event.target.value});
+        console.log(event.target.name, event.target.value)
     },
 
+    // Fungsi untuk mendapatkan informasi kategori yang di klik
     changeInputKategori: (state, event) => {
         store.setState({kategori: event.target.value, item_search:""});
     },
 
+    // Axios untuk registrasi
     handleSignUp : async (state) => {
         const self = this
         const req = {
@@ -86,7 +102,7 @@ export const actions = store => ({
         })
     },
 
-
+    // Axios ntuk mendapatkan list all product
     getAllProduct : () =>{
         axios
             .get("http://localhost:5000/item")
@@ -98,6 +114,7 @@ export const actions = store => ({
             });
     },
 
+    // Axios ntuk mendapatkan item product yang di search
     getSearchProduct : (state) =>{
         const item_search = state.item_search
         axios
@@ -110,6 +127,7 @@ export const actions = store => ({
             });
     },
 
+    // Axios ntuk mendapatkan informasi item product yang di klik
     getProductDetail : (state) =>{
         const id_product = state.id_product
         axios
@@ -122,6 +140,7 @@ export const actions = store => ({
             });
     },
 
+    // Axios ntuk mendapatkan informasi profil
     getUserDetail : (state) =>{
         const user_id = state.user_id
         axios
@@ -133,6 +152,7 @@ export const actions = store => ({
             });
     },
 
+    // Axios ntuk menginput barang ke cart
     postCart : (state) =>{
         axios.post("http://localhost:5000/cart",
             {
@@ -157,6 +177,7 @@ export const actions = store => ({
         });
     },
 
+    // Axios ntuk mendapatkan info cart yang tersedia
     getCart : (state) => {
         axios.get("http://localhost:5000/cart",
             {
@@ -178,6 +199,7 @@ export const actions = store => ({
 
     },
 
+    // Axios ntuk mendapatkan list cart
     getCartDetail : (state) => {
         axios.get("http://localhost:5000/cart/detail")
         .then((response) => {
@@ -189,6 +211,59 @@ export const actions = store => ({
             localStorage.removeItem("token");
             store.setState({modalShow: true});
         });
+    },
+
+    handleCheckout : async (state) => {
+        const self = this
+        const req = {
+            method: "post",
+            url: "http://localhost:5000/checkout",
+            headers: {
+                "Authorization": "Bearer "+ state.token,
+                "Content-Type": "application/json"
+            },
+            data: {
+              nama_penerima : state.nama_penerima_checkout,
+              alamat : state.alamat_checkout,
+              kode_pos : state.kode_pos_checkout,
+              nomor_telepon : state.nomor_telepon_checkout,
+              metode_pengiriman : state.metode_pengiriman_checkout
+            }
+        }
+        await axios(req)
+        .then(response => {
+            alert("Checkout Success")
+        })          
+        .catch(error => {
+            return false
+        })
+    },
+
+    handlePayment : async (state) => {
+        const self = this
+        const req = {
+            method: "post",
+            url: "http://localhost:5000/payment",
+            headers: {
+                "Authorization": "Bearer "+ state.token,
+                "Content-Type": "application/json"
+            },
+            data: {
+              cardholder : state.cardholder_payment,
+              card_number : state.card_number_payment,
+              security_code : state.security_code_payment,
+              expired_month : state.expired_month_payment,
+              expired_year : state.expired_year_payment,
+              status_cod : state.status_cod_payment
+            }
+        }
+        await axios(req)
+        .then(response => {
+            alert("Payment Success")
+        })          
+        .catch(error => {
+            return false
+        })
     }
 
 })
