@@ -129,7 +129,6 @@ export const actions = store => ({
             store.setState({ user_detail: response.data});
             })
             .catch(function(error){
-                alert('invalid user_id')
             });
     },
 
@@ -151,7 +150,6 @@ export const actions = store => ({
             alert("Berhasil ditambahkan ke keranjang");
         })
         .catch((error) => {
-            alert("Terdapat kesalahan pada proses verifikasi, silahkan masuk kembali");
             localStorage.removeItem("isLogin");
             localStorage.removeItem("token");
             store.setState({modalShow: true});
@@ -170,10 +168,8 @@ export const actions = store => ({
         .then((response) => {
             var objekCart = response.data.filter((element) => element.status === false)
             store.setState({total_harga_cart : objekCart[0].total_harga})
-            alert("Berhasil mendapatkan keranjang");
         })
         .catch((error) => {
-            alert("Terdapat kesalahan pada proses verifikasi, silahkan masuk kembali");
             localStorage.removeItem("isLogin");
             localStorage.removeItem("token");
             store.setState({modalShow: true});
@@ -188,7 +184,6 @@ export const actions = store => ({
             store.setState({listCart : objekCartDetail})
         })
         .catch((error) => {
-            alert("Terdapat kesalahan pada proses verifikasi, silahkan masuk kembali");
             localStorage.removeItem("isLogin");
             localStorage.removeItem("token");
             store.setState({modalShow: true});

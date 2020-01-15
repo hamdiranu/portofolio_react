@@ -9,7 +9,6 @@ import { Button } from "react-bootstrap";
 class ProductDetail extends React.Component {
 
 	componentDidMount = () =>{
-		this.props.getCart()
 		const produk_id = this.props.match.params.id
 		store.setState({ id_product:produk_id });
 		console.log("cek state id", this.props.id_product)

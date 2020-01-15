@@ -14,8 +14,9 @@ import { actions } from '../store';
 class Cart extends Component {
 
   render() {
+    this.props.getCart()
     this.props.getCartDetail()
-    const listCartItem = this.props.listCart
+    const listCartItem = this.props.listCart.filter((element) => element.total_product > 0)
     return (
       <div className ="bodyCheckout">
         <Navigasi/>
@@ -45,7 +46,7 @@ class Cart extends Component {
           <div className="container" style={{border:"1px solid black", padding:"10px 10px", borderRadius:"10px",backgroundColor:"white", marginBottom:"20px"}}>
             <div className="row">
               <div className="col-md-3" style={{textAlign:"center"}}>
-                <Link className="underlineHover" to={`/product/${isi.id}`}><img style={{borderRadius:"10px"}} src={isi.gambar_1} className="fotoBarang" alt=""/></Link>
+                <Link className="underlineHover" to={`/product/${isi.product_id}`}><img style={{borderRadius:"10px"}} src={isi.gambar_1} className="fotoBarang" alt=""/></Link>
               </div>
               <div className="col-md-3" style={{textAlign:"center", margin:"auto"}}>
                 <span> {isi.product_name} </span>
