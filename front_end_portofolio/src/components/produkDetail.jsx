@@ -32,9 +32,9 @@ class ProductDetail extends React.Component {
 		console.log("isi detail produk",detail_product)
 
 	return (
-		<div className="container" style={{border:"1px solid black", marginTop:"130px", padding:"10px 10px", borderRadius:"10px"}}>
+		<div className="container" style={{border:"1px solid black", marginTop:"130px", padding:"10px 10px", borderRadius:"10px", backgroundColor:"white"}}>
 			<div className="row">
-				<div className="col-md-6" style={{textAlign:"center"}}>
+				<div className="col-md-6 gambar_detail" style={{textAlign:"center", borderRight:"1px solid black"}}>
 					<div className="row">
 					<div className="col-md-12" style={{textAlign:"center", width:"100%",height:"250px"}}><img style={{width:"160px",height:"230px",borderRadius:"10px"}} src={detail_product.gambar_1} className="fotoBarang" alt=""/></div>
 					<div className="col-md-4"><img style={{borderRadius:"10px"}} src={detail_product.gambar_2} className="fotoBarang" alt=""/></div>

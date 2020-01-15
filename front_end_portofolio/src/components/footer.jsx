@@ -17,7 +17,7 @@ function Footer () {
           <div class="col-sm-12 col-md-9">
             <h6 style={{fontWeight:'bold'}} >About Us</h6>
             <p></p>
-            <p class="text-justify">Teman Jalan is here to provide cutting-edge information regarding tourist areas which are equipped with airplane ticket booking facilities that are ready to spoil you without having to go in and out of different applications. We are always ready to accompany your trip.</p>
+            <p class="text-justify">Manggaleh.com Handles Everything From Marketing and Payments, To Secure Checkout and Shipping. Grow Your Business With Our Unified Platform. Start 14 Day Free Trial Now. Fulfillment Integration. Fraud Prevention. Full Blogging Platform. SSL Certificate.</p>
           </div>
           <div class="col-xs-6 col-md-3">
             <Link to="/">
