@@ -30,7 +30,8 @@ const initialState = {
     total_to_cart: "",
     cart_id:"",
     total_harga_cart:"",
-    listCart:[]
+    listCart:[],
+    total_barang_cart:""
 };
 
 export const store = createStore(initialState);
@@ -167,7 +168,7 @@ export const actions = store => ({
         )
         .then((response) => {
             var objekCart = response.data.filter((element) => element.status === false)
-            store.setState({total_harga_cart : objekCart[0].total_harga})
+            store.setState({total_harga_cart : objekCart[0].total_harga, total_barang_cart:objekCart[0].total_item})
         })
         .catch((error) => {
             localStorage.removeItem("isLogin");

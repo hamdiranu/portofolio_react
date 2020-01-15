@@ -68,8 +68,11 @@ class Cart extends Component {
             <div className="col-md-2" style={{textAlign:"center", margin:"auto"}}>
               <span> TOTAL </span>
             </div>
-            <div className="col-md-8" style={{textAlign:"left",margin:"auto"}}>
+            <div className="col-md-6" style={{textAlign:"left",margin:"auto"}}>
               <span> Rp {this.props.total_harga_cart} </span>
+            </div>
+            <div className="col-md-2" style={{textAlign:"center"}}>
+              <span>{this.props.total_barang_cart} </span>
             </div>
             <div className="col-md-2" style={{textAlign:"center"}}>
               <Button variant="primary" type="submit" style={{margin:"auto"}}>
@@ -84,4 +87,4 @@ class Cart extends Component {
   };
 }
 
-export default connect("listCart, cart_id, total_harga_cart",actions)(withRouter(Cart));
+export default connect("total_barang_cart, listCart, cart_id, total_harga_cart",actions)(withRouter(Cart));
