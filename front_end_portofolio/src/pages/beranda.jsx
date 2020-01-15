@@ -9,6 +9,7 @@ import Footer from '../components/footer';
 import AllItem from '../components/allItem';
 
 class Beranda extends Component {
+
   render() {
     return (
       <div>
