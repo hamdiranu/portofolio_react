@@ -11,6 +11,9 @@
   text-align: center;
   margin: 0px;
   padding: 30px;
+  height: 320px;
+  margin-bottom: 20px;
+  background-color: white;
 }
 
 .kotak_kategori {
