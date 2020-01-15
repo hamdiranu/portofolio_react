@@ -16,8 +16,14 @@ class ProductDetail extends React.Component {
 	}
 
 	postItem = async() => {
-		await this.props.postCart()
-		this.props.history.push("/cart")
+		if (this.props.is_login===true){
+			await this.props.postCart()
+			this.props.history.push("/cart")
+		}
+		else {
+			alert("Mohon login terlebih dahulu")
+			this.props.history.push("/signIn")
+		}
     }
 
     render() {
@@ -78,4 +84,4 @@ class ProductDetail extends React.Component {
 		</div>
   	)}
 }
-export default connect("cart_id, product_detail, id_product",actions)(withRouter(ProductDetail));
+export default connect("is_login, cart_id, product_detail, id_product",actions)(withRouter(ProductDetail));
