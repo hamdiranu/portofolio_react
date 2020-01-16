@@ -49,11 +49,13 @@ export const store = createStore(initialState);
 
 export const actions = store => ({
     
+    // Fungsi untuk mengubah state sesuai dengan inputan pada kotak input 
     handleSearch : (state,e) => {
         let value = e.target.value;
         store.setState({ item_search :value});
     },
 
+    // Fungsi untuk menyimpan jumlah barang yang ditambah pembeli ke cart
     handleSelect : (state,e) => {
         let value = e.target.value;
         store.setState({ total_to_cart :value});
@@ -213,6 +215,7 @@ export const actions = store => ({
         });
     },
 
+    // 
     handleCheckout : async (state) => {
         const self = this
         const req = {
