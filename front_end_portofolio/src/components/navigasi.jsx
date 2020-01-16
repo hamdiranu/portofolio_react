@@ -19,14 +19,18 @@ class Navigasi extends React.Component {
     }
 
     handleSignOut = async () => {
-        await store.setState({is_login:false});
+        localStorage.removeItem("user_id")
+        localStorage.removeItem("is_login")
+        localStorage.removeItem("username")
+        localStorage.removeItem("token")
+        // await store.setState({is_login:false});
         // console.warn('cek log out', this.props.is_login)
         this.props.history.push("/");
       };
 
     render (){
         
-        if (this.props.is_login){
+        if (localStorage.getItem("is_login")){
             return (
             <Navbar fixed="top" className="navbar_react" collapseOnSelect expand="lg" bg="dark" variant="dark" >
                 <Navbar.Brand href="#home"><img className="logo-react" src={logo} alt="" /></Navbar.Brand>

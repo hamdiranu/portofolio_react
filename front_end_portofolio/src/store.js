@@ -146,7 +146,7 @@ export const actions = store => ({
     getUserDetail : (state) =>{
         const user_id = state.user_id
         axios
-            .get("http://localhost:5000/user/"+user_id)
+            .get("http://localhost:5000/user/"+localStorage.getItem("user_id"))
             .then(function(response){
             store.setState({ user_detail: response.data});
             })
@@ -163,7 +163,7 @@ export const actions = store => ({
             },
             {
                 headers: {
-                    "Authorization": "Bearer "+ state.token,
+                    "Authorization": "Bearer "+ localStorage.getItem("token"),
                     "Content-Type": "application/json"
                 }
             }
@@ -173,8 +173,6 @@ export const actions = store => ({
             alert("Berhasil ditambahkan ke keranjang");
         })
         .catch((error) => {
-            localStorage.removeItem("isLogin");
-            localStorage.removeItem("token");
             store.setState({modalShow: true});
         });
     },
@@ -184,18 +182,21 @@ export const actions = store => ({
         axios.get("http://localhost:5000/cart",
             {
                 headers: {
-                    "Authorization": "Bearer "+ state.token,
+                    "Authorization": "Bearer "+ localStorage.getItem("token"),
                     "Content-Type": "application/json"
                 }
             }
         )
         .then((response) => {
             var objekCart = response.data.filter((element) => element.status === false)
-            store.setState({total_harga_cart : objekCart[0].total_harga, total_barang_cart:objekCart[0].total_item})
+            store.setState({
+                total_harga_cart : objekCart[0].total_harga, 
+                total_barang_cart:objekCart[0].total_item,
+                cart_id : objekCart[0].id
+                
+            })
         })
         .catch((error) => {
-            localStorage.removeItem("isLogin");
-            localStorage.removeItem("token");
             store.setState({modalShow: true});
         });
 
@@ -209,9 +210,7 @@ export const actions = store => ({
             store.setState({listCart : objekCartDetail})
         })
         .catch((error) => {
-            localStorage.removeItem("isLogin");
-            localStorage.removeItem("token");
-            store.setState({modalShow: true});
+            alert("Terjadi kesalahan saat mengambil cart detail");
         });
     },
 
@@ -222,7 +221,7 @@ export const actions = store => ({
             method: "post",
             url: "http://localhost:5000/checkout",
             headers: {
-                "Authorization": "Bearer "+ state.token,
+                "Authorization": "Bearer "+ localStorage.getItem("token"),
                 "Content-Type": "application/json"
             },
             data: {
@@ -248,7 +247,7 @@ export const actions = store => ({
             method: "post",
             url: "http://localhost:5000/payment",
             headers: {
-                "Authorization": "Bearer "+ state.token,
+                "Authorization": "Bearer "+ localStorage.getItem("token"),
                 "Content-Type": "application/json"
             },
             data: {
@@ -262,6 +261,11 @@ export const actions = store => ({
         }
         await axios(req)
         .then(response => {
+            store.setState({
+                cart_id : "",
+                total_harga_cart: 0,
+                total_barang_cart: 0
+            })
             alert("Payment Success")
         })          
         .catch(error => {

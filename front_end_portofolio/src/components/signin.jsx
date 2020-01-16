@@ -27,6 +27,7 @@ class SignIn extends React.Component {
             if (response.data.hasOwnProperty('token')){
                 localStorage.setItem('username', self.props.username)
                 localStorage.setItem('token', response.data.token)
+                localStorage.setItem('user_id', response.data.id)
                 localStorage.setItem('is_login', true)
                 store.setState({
                     "is_login": true,
@@ -60,7 +61,6 @@ class SignIn extends React.Component {
                 <div className="fadeIn first">
                 <img style={{ marginTop:'30px', marginBottom:'30px'}} src={logo} id="icon" alt="User Icon" />
                 </div>
-
                     {/* <!-- Login Form --> */}
                     <form onSubmit={e => e.preventDefault()}>
                         <input 

@@ -15,14 +15,14 @@ class BodyProfile extends React.Component {
 
   render() {
     
-    const is_login = this.props.is_login;
     const info_profile = this.props.user_detail;
     console.log("cek isi info profile", info_profile)
     
-    if (is_login === false) {
-      return <Redirect to={{ pathname: "/signIn" }} />;
-    } 
-    else {
+    // if (localStorage.getItem("is_login")) {
+      
+    // }
+    
+    if (localStorage.getItem("is_login")) {
       return (
         <React.Fragment>
           <div className="container-fluid">
@@ -144,6 +144,9 @@ class BodyProfile extends React.Component {
           </div>
         </React.Fragment>
       );
+    } 
+    else {
+      return <Redirect to={{ pathname: "/signIn" }} />;
     }
   };
 }

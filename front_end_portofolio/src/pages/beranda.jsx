@@ -10,6 +10,10 @@ import AllItem from '../components/allItem';
 
 class Beranda extends Component {
 
+  componentDidMount = () =>{
+    this.props.getCart()
+  }
+
   render() {
     return (
       <div>
@@ -36,4 +40,4 @@ class Beranda extends Component {
   };
 }
 
-export default connect( "is_login", actions )(withRouter(Beranda));
+export default connect( "cart_id, is_login", actions )(withRouter(Beranda));
