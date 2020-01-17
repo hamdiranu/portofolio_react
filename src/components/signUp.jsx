@@ -17,7 +17,6 @@ class SignUp extends React.Component {
   };
 
   render() {
-    console.log('cek state', this.props);
     return (
       <div className="wrapper fadeInDown">
         <div id="formRegister">
@@ -34,6 +33,7 @@ class SignUp extends React.Component {
                   onChange={e => this.props.changeInput(e)}
                   name="username"
                   placeholder="Username"
+                  required
                 />
               </Col>
             </Form.Group>
@@ -48,12 +48,14 @@ class SignUp extends React.Component {
                   onChange={e => this.props.changeInput(e)}
                   name="first_name"
                   placeholder="First Name"
+                  required
                 />
                 <input
                   type="text"
                   onChange={e => this.props.changeInput(e)}
                   name="last_name"
                   placeholder="Last Name"
+                  required
                 />
               </Col>
             </Form.Group>
@@ -103,6 +105,7 @@ class SignUp extends React.Component {
                   onChange={e => this.props.changeInput(e)}
                   name="date_of_birth"
                   placeholder="Date of Birth"
+                  required
                 />
               </Col>
             </Form.Group>
@@ -119,6 +122,7 @@ class SignUp extends React.Component {
                   className="addressBar"
                   style={{ width: '90%' }}
                   placeholder="Address"
+                  required
                 />
               </Col>
               <Col md="4" sm="12">
@@ -131,6 +135,7 @@ class SignUp extends React.Component {
                   name="city"
                   style={{ width: '50%' }}
                   placeholder="City"
+                  required
                 />
                 <Form.Label column md="4" sm="1">
                   Zip Code :{' '}
@@ -141,6 +146,7 @@ class SignUp extends React.Component {
                   name="zip_code"
                   style={{ width: '50%' }}
                   placeholder="Zip Code"
+                  required
                 />
               </Col>
             </Form.Group>
@@ -155,6 +161,7 @@ class SignUp extends React.Component {
                   onChange={e => this.props.changeInput(e)}
                   name="phone_number"
                   placeholder="Username"
+                  required
                 />
               </Col>
             </Form.Group>
@@ -169,6 +176,7 @@ class SignUp extends React.Component {
                   onChange={e => this.props.changeInput(e)}
                   name="password"
                   placeholder="Password"
+                  required
                 />
                 <input type="password" placeholder="Konfirmasi Password" />
               </Col>
@@ -185,6 +193,7 @@ class SignUp extends React.Component {
                   name="email"
                   className="emailInput"
                   placeholder="Email"
+                  required
                 />
                 <input type="email" placeholder="Konfirmasi Email" />
               </Col>
@@ -194,6 +203,7 @@ class SignUp extends React.Component {
                 type="checkbox"
                 label="I Agree to The Terms and Conditions"
                 style={{ marginTop: '10px' }}
+                required
               />
             </Form.Group>
             <input type="submit" className="fadeIn fourth" value="Register" onClick={this.signUp} />

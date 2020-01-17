@@ -14,7 +14,6 @@ class BodyProfile extends React.Component {
 
   render() {
     const info_profile = this.props.user_detail;
-    console.log('cek isi info profile', info_profile);
 
     if (localStorage.getItem('is_login')) {
       return (

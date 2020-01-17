@@ -12,7 +12,6 @@ class AllItem extends React.Component {
 
   render() {
     const list_product = this.props.listAllProduct;
-    console.log('cek list item', list_product);
 
     return (
       <div class="container">

@@ -38,7 +38,7 @@ function Footer() {
           <div class="row">
             <div style={{ marginTop: '20px' }} class="col-md-9 col-sm-6 col-xs-12">
               <p class="copyright-text" style={{ textAlign: 'center' }}>
-                Copyright &copy; 2020 All Rights Reserved by <Link to="/">manggaleh.com</Link>
+                Copyright &copy; 2020 All Rights Reserved by <Link to="/">Manggaleh.com</Link>
               </p>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12 social-media">

@@ -14,7 +14,6 @@ class ListItemSearch extends React.Component {
     const list_product = this.props.listAllProduct.filter(
       element => element.kategori === this.props.kategori
     );
-    console.log('cek list item', list_product);
     return (
       <div className="container-fluid">
         <div className="row profileBody-row">

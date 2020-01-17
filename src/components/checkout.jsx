@@ -17,7 +17,6 @@ class componentCheckout extends React.Component {
   };
 
   render() {
-    console.log('cek props', this.props);
     return (
       <div className="berandaLogin">
         <div className="fadeIn first judulSignUp">

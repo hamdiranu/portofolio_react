@@ -6,6 +6,34 @@ body {
   background-color: #d2dbe0;
 }
 
+.judulSignUp {
+  padding-top: 20px;
+}
+
+.bodyCheckout {
+  margin-top: 100px;
+}
+
+.formCheckout {
+  text-align: left;
+  font-size: 12px;
+}
+
+.kotakRingkasanCheckout {
+  background: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 25px;
+}
+
+.metodePengiriman {
+  padding-top: 20px;
+}
+
+.shippingMethod {
+  padding-left: 52px;
+}
+
 a {
   color: #92badd;
   display: inline-block;
@@ -32,7 +60,17 @@ h2 {
   justify-content: center;
   width: 100%;
   min-height: 100%;
-  padding: 50px;
+  padding: 20px;
+}
+
+.input_bar {
+  max-width: 100px;
+  max-height: 30px;
+}
+
+.input_bar_address {
+  max-width: 100px;
+  max-height: 90px;
 }
 
 #formContent {
@@ -134,7 +172,7 @@ input[type='password'] {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 11px;
   margin: 5px;
   width: 70%;
   border: 2px solid #f6f6f6;
@@ -309,7 +347,33 @@ input[type='password']:placeholder {
   padding-right: 10px;
 }
 
+.addressBar {
+  height: 97px;
+}
+
+.formRegister {
+  font-size: 12px;
+}
+
+.emailInput {
+  margin-right: 10px;
+  margin-left: 4px;
+}
+
 @media (max-width: 767px) {
+  .bodyCheckout {
+    margin-top: 205px;
+  }
+
+  .emailInput {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .formUsername {
+    text-align: center;
+  }
+
   input[type='text'],
   input[type='password'] {
     background-color: #f6f6f6;
@@ -350,7 +414,7 @@ input[type='password']:placeholder {
     justify-content: center;
     width: 100%;
     min-height: 100%;
-    margin-top: 0px;
+    margin-top: 50px;
     padding: 0;
   }
 }

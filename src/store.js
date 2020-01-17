@@ -177,6 +177,14 @@ export const actions = store => ({
       });
   },
 
+  // Fungsi untuk log out
+  handleLogOut: async () => {
+    localStorage.removeItem('user_id');
+    localStorage.removeItem('is_login');
+    localStorage.removeItem('username');
+    localStorage.removeItem('token');
+  },
+
   // Axios ntuk mendapatkan info cart yang tersedia
   getCart: state => {
     axios
@@ -212,7 +220,7 @@ export const actions = store => ({
       });
   },
 
-  //
+  // Fungsi utnuk menginputkan data checkout ke database checkout
   handleCheckout: async state => {
     const req = {
       method: 'post',
@@ -236,6 +244,7 @@ export const actions = store => ({
       .catch(error => false);
   },
 
+  // Fungsi utnuk menginputkan data checkout ke database checkout
   handlePayment: async state => {
     const req = {
       method: 'post',

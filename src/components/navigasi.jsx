@@ -17,12 +17,10 @@ class Navigasi extends React.Component {
     this.props.handleSearch(e);
   };
 
-  handleSignOut = async () => {
-    localStorage.removeItem('user_id');
-    localStorage.removeItem('is_login');
-    localStorage.removeItem('username');
-    localStorage.removeItem('token');
+  logOut = () => {
+    this.props.handleLogOut();
     this.props.history.push('/');
+    alert('Sukses Log Out');
   };
 
   render() {
@@ -80,7 +78,10 @@ class Navigasi extends React.Component {
           </Navbar.Brand>
           <ButtonGroup aria-label="Third group">
             <Button variant="outline-secondary">
-              <Link style={{ color: 'black', textDecoration: 'none' }} onClick={this.handleSignOut}>
+              <Link
+                style={{ color: 'black', textDecoration: 'none' }}
+                onClick={() => this.logOut()}
+              >
                 Log Out
               </Link>
             </Button>

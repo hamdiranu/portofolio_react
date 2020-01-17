@@ -7,7 +7,7 @@ class Profil extends Component {
   render() {
     return (
       <div>
-        <Navigasi {...this.props} />
+        <Navigasi />
         <BadanProfil />
         <Footer />
       </div>

@@ -104,7 +104,7 @@ class ProductDetail extends React.Component {
                 type="text"
                 onChange={e => this.props.handleSelect(e)}
                 name="qty"
-                placeholder="1"
+                placeholder="Add quantity"
               />
             </div>
             <div style={{ textAlign: 'center', paddingTop: '10px' }}>

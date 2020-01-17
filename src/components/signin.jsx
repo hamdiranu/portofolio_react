@@ -34,11 +34,8 @@ class SignIn extends React.Component {
             user_id: response.data.id,
             token: response.data.token
           });
-          // console.log("status login", this.props.is_login)
-          // console.log("status username", this.props.username)
           self.props.history.push('/');
         }
-        console.log('response data', response.data);
       })
       .catch(function(error) {
         alert('invalid username or password');
