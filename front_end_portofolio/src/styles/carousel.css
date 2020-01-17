@@ -1,5 +1,4 @@
-
-.body_beranda{
+.body_beranda {
   padding-top: 105px;
 }
 
@@ -7,18 +6,14 @@
   height: fit-content;
 }
 
-@media (max-width:991px)
-{
-  .body_beranda{
+@media (max-width: 991px) {
+  .body_beranda {
     padding-top: 197px;
   }
-
 }
 
-@media (max-width:767px)
-{
+@media (max-width: 767px) {
   .img_carousel {
     height: 171px;
   }
 }
-

@@ -8,13 +8,13 @@ import '../styles/checkout.css';
 class Checkout extends Component {
   render() {
     return (
-      <div className ="bodyCheckout">
-        <Navigasi/>
-        <Checkoutcomponent/>
-        <Footer/>
+      <div className="bodyCheckout">
+        <Navigasi />
+        <Checkoutcomponent />
+        <Footer />
       </div>
-    )
-  };
+    );
+  }
 }
 
 export default Checkout;

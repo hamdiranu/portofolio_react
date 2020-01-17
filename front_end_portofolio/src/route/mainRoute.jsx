@@ -15,26 +15,26 @@ import ProductDetail from '../pages/productDetail';
 import Cart from '../pages/cart';
 
 const MainRoute = () => {
-    return (
-        <Provider store={store}>
-            <BrowserRouter>
-                <Switch>
-                    {/* PAGES ROUTING */}
-                    <Route exact path="/" component={Beranda} />
-                    <Route exact path='/profil' component={Profile} />
-                    <Route exact path='/signIn' component={Login} />
-                    <Route exact path='/signUp' component={Register} />
-                    <Route exact path='/listitem' component={ListItem} />
-                    <Route exact path='/search/item' component={ListItemSearch} />
-                    <Route exact path='/checkout' component={Checkout} />
-                    <Route exact path='/payment' component={Payment} />
-                    <Route exact path='/product/:id' component={ProductDetail} />
-                    <Route exact path='/cart' component={Cart} />
-                    <Route component={NotMatch} />
-                </Switch>
-            </BrowserRouter>
-        </Provider>
-    )
-}
+  return (
+    <Provider store={store}>
+      <BrowserRouter>
+        <Switch>
+          {/* PAGES ROUTING */}
+          <Route exact path="/" component={Beranda} />
+          <Route exact path="/profil" component={Profile} />
+          <Route exact path="/signIn" component={Login} />
+          <Route exact path="/signUp" component={Register} />
+          <Route exact path="/listitem" component={ListItem} />
+          <Route exact path="/search/item" component={ListItemSearch} />
+          <Route exact path="/checkout" component={Checkout} />
+          <Route exact path="/payment" component={Payment} />
+          <Route exact path="/product/:id" component={ProductDetail} />
+          <Route exact path="/cart" component={Cart} />
+          <Route component={NotMatch} />
+        </Switch>
+      </BrowserRouter>
+    </Provider>
+  );
+};
 
 export default MainRoute;

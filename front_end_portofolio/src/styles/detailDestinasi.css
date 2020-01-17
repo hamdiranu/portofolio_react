@@ -1,29 +1,29 @@
 .destinasi-judul {
-    padding: 20px 10%;
+  padding: 20px 10%;
 }
 
 .destinasi-judul h1 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
-@media(max-width:767px) {
-    .destinasi {
-        padding-top: 150px;
-    }
+@media (max-width: 767px) {
+  .destinasi {
+    padding-top: 150px;
+  }
 
-    .set-responsif {
-        margin-top: 130px;
-    }
-    
-    .destinasi-list-destinasi {
-        margin-left: 0px;
-    }
-    
-    .cari-tiket h3{
-        font-size: 20px;
-    }
+  .set-responsif {
+    margin-top: 130px;
+  }
 
-    .destinasi-tiket{
-        font-size: 12px;
-    }
+  .destinasi-list-destinasi {
+    margin-left: 0px;
+  }
+
+  .cari-tiket h3 {
+    font-size: 20px;
+  }
+
+  .destinasi-tiket {
+    font-size: 12px;
+  }
 }

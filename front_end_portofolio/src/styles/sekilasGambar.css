@@ -1,27 +1,27 @@
 .sekilas-gambar {
-    transition: transform .2s; /* Animation */
-    margin: 0 auto;
-    transition: 0.3s;
+  transition: transform 0.2s; /* Animation */
+  margin: 0 auto;
+  transition: 0.3s;
 }
 
 body {
-    background-color: #d4f5f0;
+  background-color: #d4f5f0;
 }
 
 .sekilas-gambar:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
-.sekilas-gambar img:hover{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.sekilas-gambar img:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .sekilasBeranda a {
-    text-decoration: none;
-    transition: .2s;
+  text-decoration: none;
+  transition: 0.2s;
 }
 
-@media(max-width:767px){
-    .sekilas-gambar img {
-        margin-left: 15%;
-    }
+@media (max-width: 767px) {
+  .sekilas-gambar img {
+    margin-left: 15%;
+  }
 }
