@@ -323,6 +323,10 @@
 
 @media(max-width:767px){
 
+    .form_gender {
+      padding-left: 100px;
+    }
+
     .emailInput {
       margin-right: 20px;
       margin-left: 20px;

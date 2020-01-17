@@ -1,6 +1,5 @@
 import createStore from 'unistore';
 import axios from "axios";
-import moment from 'moment';
 
 const initialState = {
     token:"",
@@ -74,7 +73,6 @@ export const actions = store => ({
 
     // Axios untuk registrasi
     handleSignUp : async (state) => {
-        const self = this
         const req = {
             method: "post",
             url: "http://localhost:5000/user",
@@ -144,7 +142,6 @@ export const actions = store => ({
 
     // Axios ntuk mendapatkan informasi profil
     getUserDetail : (state) =>{
-        const user_id = state.user_id
         axios
             .get("http://localhost:5000/user/"+localStorage.getItem("user_id"))
             .then(function(response){
@@ -216,7 +213,6 @@ export const actions = store => ({
 
     // 
     handleCheckout : async (state) => {
-        const self = this
         const req = {
             method: "post",
             url: "http://localhost:5000/checkout",
@@ -242,7 +238,6 @@ export const actions = store => ({
     },
 
     handlePayment : async (state) => {
-        const self = this
         const req = {
             method: "post",
             url: "http://localhost:5000/payment",
@@ -266,7 +261,7 @@ export const actions = store => ({
                 total_harga_cart: 0,
                 total_barang_cart: 0
             })
-            alert("Payment Success")
+            alert("Payment Success, Please Cek Your E-mail")
         })          
         .catch(error => {
             return false

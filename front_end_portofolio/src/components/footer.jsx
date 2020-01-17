@@ -21,7 +21,7 @@ function Footer () {
           </div>
           <div class="col-xs-6 col-md-3">
             <Link to="/">
-              <img class='footer-logo' style={{width:'80%', marginLeft: "19%", marginTop: "-20px"}} src={logo}></img>
+              <img class='footer-logo' style={{width:'80%', marginLeft: "19%", marginTop: "-20px"}} src={logo} alt="logo manggaleh.com"></img>
             </Link>
           </div>
         </div>
@@ -30,12 +30,22 @@ function Footer () {
             <div style={{ marginTop:'20px'}} class="col-md-9 col-sm-6 col-xs-12">
               <p class="copyright-text" style={{textAlign: "center"}}>Copyright &copy; 2020 All Rights Reserved by <Link to="/">manggaleh.com</Link></p>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-              <ul class="social-icons">
-                <li><a src={fb} class="facebook" href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook">fb</i></a></li>
-                <li><a src={tw} class="twitter" href="https://twitter.com" target="_blank"><i class="fa fa-twitter">tw</i></a></li>
-                <li><a src={dr} class="dribbble" href="https://dribbble.com" target="_blank"><i class="fa fa-dribbble">dr</i></a></li>
-                <li><a src={lin} class="linkedin" href="https://www.linkedin.com" target="_blank"><i class="fa fa-linkedin">lin</i></a></li>   
+            <div class="col-md-3 col-sm-6 col-xs-12 social-media">
+              <ul class="social-icons" style={{display:"flex"}}>
+                <li>
+                  <Link to="/">
+                    <img class='facebook' style={{ marginLeft: "19%", marginTop: "-20px"}} src={fb} alt="facebook"></img>
+                  </Link>
+                </li>
+                <li><Link to="/">
+                    <img class='twitter' style={{ marginLeft: "19%", marginTop: "-20px"}} src={tw} alt="twitter"></img>
+                  </Link></li>
+                <li><Link to="/">
+                    <img class='driblle' style={{ marginLeft: "19%", marginTop: "-20px"}} src={dr} alt="dribble"></img>
+                  </Link></li>
+                <li><Link to="/">
+                    <img class='linkedin' style={{ marginLeft: "19%", marginTop: "-20px"}} src={lin} alt="linkedin"></img>
+                  </Link></li>
               </ul>
             </div>
           </div>

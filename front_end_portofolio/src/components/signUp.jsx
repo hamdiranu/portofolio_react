@@ -48,7 +48,7 @@ class SignUp extends React.Component {
                         <Form.Label column md="2" sm="1">
                         Gender :
                         </Form.Label>
-                        <Col style={{display:"flex"}} md="8" sm="10">
+                        <Col style={{display:"flex"}} md="8" sm="12" className="form_gender">
                             <div className="form-check form-check-inline">
                                 <input onClick={e => this.props.changeInput(e)} type="radio" name="gender" value="Male"/>
                                 <label className="form-check-label" >Male</label>
@@ -125,6 +125,9 @@ class SignUp extends React.Component {
                         value="Register" 
                         onClick={this.signUp}/>
                 </Form>
+                <div style={{marginBottom:"10px"}}>
+                    <span>Already have an account? <Link className="underlineHover" to="/signin">Sign in</Link> now</span>
+                </div>
                 <div id="formFooter">
                 <Link className="underlineHover" to="/">Back to Home</Link>
                 </div>

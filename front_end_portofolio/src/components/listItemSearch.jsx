@@ -10,15 +10,18 @@ import { Form, Button, Row, Col } from "react-bootstrap";
 class listItemKategori extends React.Component {
 
 	componentDidMount = async ()=> {
+		// Jika kotak pencarian kosong, akan mengambil semua item
 		if (this.props.item_search===""){
 			this.props.getAllProduct()
 		}
+		// Jika kotak pencarian tidak kosong
 		else{
 			this.props.getSearchProduct()
 		}
 	}
 
     render() {
+		// Untuk menfilter item berdasarkan kategori
 		if (this.props.item_search===""){
 			this.props.getAllProduct()
 			var list_product = this.props.listAllProduct.filter((element) => element.kategori === this.props.kategori)
@@ -53,15 +56,15 @@ class listItemKategori extends React.Component {
 						</div>
 					</div>
 			
-					<div className="col-md-7">
+					<div className="col-md-7" style={{borderLeft:"1px solid grey"}}>
 						<div className="row" style={{ display:"flex", marginTop:"20px"}}>
 						{list_product.map((isi,i)=>(
 							<div className="col-md-4">
 								<div className="kotak_barang">
-									<div className="col-md-12">
+									<div className="col-md-12" style={{marginBottom:"10px"}}>
 										<Link className="underlineHover" to={`/product/${isi.id}`}><img style={{borderRadius:"10px"}} src={isi.gambar_1} className="fotoBarang" alt=""/></Link>
 									</div>
-									<div className="col-md-12"><span>Rp {isi.price}</span></div>
+									<div className="col-md-12" style={{marginBottom:"10px"}}><span>Rp {isi.price}</span></div>
 									<div className="col-md-12"><span>{isi.item_name}</span></div>
 								</div>
 							</div>

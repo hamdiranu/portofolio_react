@@ -5,11 +5,11 @@ import logo from '../images/logoM.png'
 import profileLogo from '../images/profile_icon2.png'
 import cartLogo from '../images/cart_icon2.png'
 import homeLogo from '../images/home_icon5.png'
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'unistore/react'
-import { store, actions } from '../store'
-import { Nav, Navbar, NavDropdown, Form, FormControl, Button, DropdownButton, Dropdown, ButtonGroup } from 'react-bootstrap'
+import { actions } from '../store'
+import { Navbar, Form, FormControl, Button, ButtonGroup } from 'react-bootstrap'
 
 class Navigasi extends React.Component {
 
