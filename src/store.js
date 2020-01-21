@@ -1,46 +1,46 @@
-import createStore from 'unistore';
-import axios from 'axios';
+import createStore from "unistore";
+import axios from "axios";
 
 const initialState = {
-  token: '',
-  search: '',
+  token: "",
+  search: "",
   isLoading: true,
-  keyword: '',
+  keyword: "",
   is_login: false,
-  username: '',
-  user_id: '',
+  username: "",
+  user_id: "",
   user_detail: {},
-  first_name: '',
-  last_name: '',
-  gender: '',
-  date_of_birth: '',
-  address: '',
-  city: '',
-  zip_code: '',
-  phone_number: '',
-  password: '',
-  email: '',
+  first_name: "",
+  last_name: "",
+  gender: "",
+  date_of_birth: "",
+  address: "",
+  city: "",
+  zip_code: "",
+  phone_number: "",
+  password: "",
+  email: "",
   listAllProduct: [],
-  id_product: '',
+  id_product: "",
   list_product_kategori: [],
   product_detail: {},
-  kategori: '',
-  item_search: '',
-  total_to_cart: '',
-  cart_id: '',
-  total_harga_cart: '',
+  kategori: "",
+  item_search: "",
+  total_to_cart: "",
+  cart_id: "",
+  total_harga_cart: "",
   listCart: [],
-  total_barang_cart: '',
-  nama_penerima_checkout: '',
-  alamat_checkout: '',
-  kode_pos_checkout: '',
-  nomor_telepon_checkout: '',
-  metode_pengiriman_checkout: '',
-  cardholder_payment: '',
-  card_number_payment: '',
-  security_code_payment: '',
-  expired_month_payment: '',
-  expired_year_payment: '',
+  total_barang_cart: "",
+  nama_penerima_checkout: "",
+  alamat_checkout: "",
+  kode_pos_checkout: "",
+  nomor_telepon_checkout: "",
+  metode_pengiriman_checkout: "",
+  cardholder_payment: "",
+  card_number_payment: "",
+  security_code_payment: "",
+  expired_month_payment: "",
+  expired_year_payment: "",
   status_cod_payment: false
 };
 
@@ -67,21 +67,21 @@ export const actions = store => ({
 
   // Fungsi untuk mendapatkan informasi kategori yang di klik
   changeInputKategori: (state, event) => {
-    store.setState({ kategori: event.target.value, item_search: '' });
+    store.setState({ kategori: event.target.value, item_search: "" });
   },
 
   sliderInputKategori: (state, event) => {
-    console.log('cek klik slider', event);
-    store.setState({ kategori: event, item_search: '' });
+    console.log("cek klik slider", event);
+    store.setState({ kategori: event, item_search: "" });
   },
 
   // Axios untuk registrasi
   handleSignUp: async state => {
     const req = {
-      method: 'post',
-      url: 'http://localhost:5000/user',
+      method: "post",
+      url: "https://manggaleh.site/user",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       data: {
         username: state.username,
@@ -99,7 +99,7 @@ export const actions = store => ({
     };
     await axios(req)
       .then(response => {
-        alert('Sign Up Success');
+        alert("Sign Up Success");
       })
       .catch(error => false);
   },
@@ -107,12 +107,12 @@ export const actions = store => ({
   // Axios ntuk mendapatkan list all product
   getAllProduct: () => {
     axios
-      .get('http://localhost:5000/item')
+      .get("https://manggaleh.site/item")
       .then(response => {
         store.setState({ listAllProduct: response.data });
       })
       .catch(error => {
-        alert('invalid params');
+        alert("invalid params");
       });
   },
 
@@ -120,12 +120,12 @@ export const actions = store => ({
   getSearchProduct: state => {
     const { item_search } = state;
     axios
-      .get(`http://localhost:5000/item/list?item_name=${item_search}`)
+      .get(`https://manggaleh.site/item/list?item_name=${item_search}`)
       .then(response => {
         store.setState({ listAllProduct: response.data });
       })
       .catch(error => {
-        alert('invalid params');
+        alert("invalid params");
       });
   },
 
@@ -133,19 +133,19 @@ export const actions = store => ({
   getProductDetail: state => {
     const { id_product } = state;
     axios
-      .get(`http://localhost:5000/item/${id_product}`)
+      .get(`https://manggaleh.site/item/${id_product}`)
       .then(response => {
         store.setState({ product_detail: response.data });
       })
       .catch(error => {
-        alert('invalid id_product');
+        alert("invalid id_product");
       });
   },
 
   // Axios ntuk mendapatkan informasi profil
   getUserDetail: state => {
     axios
-      .get(`http://localhost:5000/user/${localStorage.getItem('user_id')}`)
+      .get(`https://manggaleh.site/user/${localStorage.getItem("user_id")}`)
       .then(response => {
         store.setState({ user_detail: response.data });
       })
@@ -156,21 +156,21 @@ export const actions = store => ({
   postCart: state => {
     axios
       .post(
-        'http://localhost:5000/cart',
+        "https://manggaleh.site/cart",
         {
           product_id: state.id_product,
           total_product: state.total_to_cart
         },
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-            'Content-Type': 'application/json'
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "application/json"
           }
         }
       )
       .then(response => {
         store.setState({ cart_id: response.data.cart_id });
-        alert('Berhasil ditambahkan ke keranjang');
+        alert("Berhasil ditambahkan ke keranjang");
       })
       .catch(error => {
         store.setState({ modalShow: true });
@@ -179,23 +179,25 @@ export const actions = store => ({
 
   // Fungsi untuk log out
   handleLogOut: async () => {
-    localStorage.removeItem('user_id');
-    localStorage.removeItem('is_login');
-    localStorage.removeItem('username');
-    localStorage.removeItem('token');
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("is_login");
+    localStorage.removeItem("username");
+    localStorage.removeItem("token");
   },
 
   // Axios ntuk mendapatkan info cart yang tersedia
   getCart: state => {
     axios
-      .get('http://localhost:5000/cart', {
+      .get("https://manggaleh.site/cart", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-          'Content-Type': 'application/json'
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json"
         }
       })
       .then(response => {
-        const objekCart = response.data.filter(element => element.status === false);
+        const objekCart = response.data.filter(
+          element => element.status === false
+        );
         store.setState({
           total_harga_cart: objekCart[0].total_harga,
           total_barang_cart: objekCart[0].total_item,
@@ -210,24 +212,26 @@ export const actions = store => ({
   // Axios ntuk mendapatkan list cart
   getCartDetail: state => {
     axios
-      .get('http://localhost:5000/cart/detail')
+      .get("https://manggaleh.site/cart/detail")
       .then(response => {
-        const objekCartDetail = response.data.filter(element => element.cart_id === state.cart_id);
+        const objekCartDetail = response.data.filter(
+          element => element.cart_id === state.cart_id
+        );
         store.setState({ listCart: objekCartDetail });
       })
       .catch(error => {
-        alert('Terjadi kesalahan saat mengambil cart detail');
+        alert("Terjadi kesalahan saat mengambil cart detail");
       });
   },
 
   // Fungsi utnuk menginputkan data checkout ke database checkout
   handleCheckout: async state => {
     const req = {
-      method: 'post',
-      url: 'http://localhost:5000/checkout',
+      method: "post",
+      url: "https://manggaleh.site/checkout",
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json"
       },
       data: {
         nama_penerima: state.nama_penerima_checkout,
@@ -239,7 +243,7 @@ export const actions = store => ({
     };
     await axios(req)
       .then(response => {
-        alert('Checkout Success');
+        alert("Checkout Success");
       })
       .catch(error => false);
   },
@@ -247,11 +251,11 @@ export const actions = store => ({
   // Fungsi utnuk menginputkan data checkout ke database checkout
   handlePayment: async state => {
     const req = {
-      method: 'post',
-      url: 'http://localhost:5000/payment',
+      method: "post",
+      url: "https://manggaleh.site/payment",
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json'
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json"
       },
       data: {
         cardholder: state.cardholder_payment,
@@ -265,11 +269,11 @@ export const actions = store => ({
     await axios(req)
       .then(response => {
         store.setState({
-          cart_id: '',
+          cart_id: "",
           total_harga_cart: 0,
           total_barang_cart: 0
         });
-        alert('Payment Success, Please Cek Your E-mail');
+        alert("Payment Success, Please Cek Your E-mail");
       })
       .catch(error => false);
   }

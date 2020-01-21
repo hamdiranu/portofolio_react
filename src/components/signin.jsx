@@ -1,20 +1,20 @@
-import React from 'react';
-import '../styles/masuk.css';
-import '../styles/bootstrap.min.css';
-import logo from '../images/logoM.png';
-import { withRouter, Link } from 'react-router-dom';
-import { connect } from 'unistore/react';
-import { store, actions } from '../store';
-import axios from 'axios';
+import React from "react";
+import "../styles/masuk.css";
+import "../styles/bootstrap.min.css";
+import logo from "../images/logoM.png";
+import { withRouter, Link } from "react-router-dom";
+import { connect } from "unistore/react";
+import { store, actions } from "../store";
+import axios from "axios";
 
 class SignIn extends React.Component {
   handleLogin = () => {
     const self = this;
     const req = {
-      method: 'post',
-      url: 'http://localhost:5000/token',
+      method: "post",
+      url: "https://manggaleh.site/token",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       data: {
         username: self.props.username,
@@ -23,30 +23,30 @@ class SignIn extends React.Component {
     };
     axios(req)
       .then(function(response) {
-        if (response.data.hasOwnProperty('token')) {
-          localStorage.setItem('username', self.props.username);
-          localStorage.setItem('token', response.data.token);
-          localStorage.setItem('user_id', response.data.id);
-          localStorage.setItem('is_login', true);
+        if (response.data.hasOwnProperty("token")) {
+          localStorage.setItem("username", self.props.username);
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("user_id", response.data.id);
+          localStorage.setItem("is_login", true);
           store.setState({
             is_login: true,
             username: self.props.username,
             user_id: response.data.id,
             token: response.data.token
           });
-          self.props.history.push('/');
+          self.props.history.push("/");
         }
       })
       .catch(function(error) {
-        alert('invalid username or password');
+        alert("invalid username or password");
       });
   };
 
   doLogin = async () => {
     await this.props.postLogin();
     if (this.props.is_login) {
-      this.props.history.push('/profil');
-      alert('Login Success');
+      this.props.history.push("/profil");
+      alert("Login Success");
     }
   };
 
@@ -56,7 +56,7 @@ class SignIn extends React.Component {
         <div id="formContent">
           <div className="fadeIn first">
             <img
-              style={{ marginTop: '30px', marginBottom: '30px' }}
+              style={{ marginTop: "30px", marginBottom: "30px" }}
               src={logo}
               id="icon"
               alt="User Icon"
@@ -84,16 +84,16 @@ class SignIn extends React.Component {
               type="submit"
               className="fadeIn fourth"
               value="Log In"
-              style={{ marginBottom: '15px', marginTop: '10px' }}
+              style={{ marginBottom: "15px", marginTop: "10px" }}
               onClick={this.handleLogin}
             />
           </form>
-          <div style={{ marginBottom: '10px' }}>
+          <div style={{ marginBottom: "10px" }}>
             <span>
-              Doesn't have account?{' '}
+              Doesn't have account?{" "}
               <Link className="underlineHover" to="/signUp">
                 Sign up
-              </Link>{' '}
+              </Link>{" "}
               now
             </span>
           </div>
@@ -109,4 +109,7 @@ class SignIn extends React.Component {
   }
 }
 
-export default connect('token, username, user_id, password, is_login', actions)(withRouter(SignIn));
+export default connect(
+  "token, username, user_id, password, is_login",
+  actions
+)(withRouter(SignIn));
