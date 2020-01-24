@@ -23,7 +23,7 @@ before_script:
 script:
   #- cp travis.env .env
   #- cat .env
-  ###- mkdir logs
+  #- mkdir logs
   # - npm run build
   - npm run test
 after_success:
