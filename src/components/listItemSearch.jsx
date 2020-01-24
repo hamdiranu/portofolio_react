@@ -1,15 +1,15 @@
-import React from 'react';
-import '../styles/footer.css';
-import '../styles/bootstrap.min.css';
-import { withRouter, Link } from 'react-router-dom';
-import { connect } from 'unistore/react';
-import { actions } from '../store';
-import { Form } from 'react-bootstrap';
+import React from "react";
+import "../styles/footer.css";
+import "../styles/bootstrap.min.css";
+import { withRouter, Link } from "react-router-dom";
+import { connect } from "unistore/react";
+import { actions } from "../store";
+import { Form } from "react-bootstrap";
 
 class listItemKategori extends React.Component {
   componentDidMount = async () => {
     // Jika kotak pencarian kosong, akan mengambil semua item
-    if (this.props.item_search === '') {
+    if (this.props.item_search === "") {
       this.props.getAllProduct();
     }
     // Jika kotak pencarian tidak kosong
@@ -20,7 +20,7 @@ class listItemKategori extends React.Component {
 
   render() {
     // Untuk menfilter item berdasarkan kategori
-    if (this.props.item_search === '') {
+    if (this.props.item_search === "") {
       this.props.getAllProduct();
       var list_product = this.props.listAllProduct.filter(
         element => element.kategori === this.props.kategori
@@ -30,15 +30,17 @@ class listItemKategori extends React.Component {
       var list_product = this.props.listAllProduct;
     }
 
+    console.log("cek list search", list_product);
+
     return (
       <div className="container-fluid">
         <div className="row profileBody-row">
           <div className="col-md-4">
             <div className="kotak_kategori">
-              <div style={{ textAlign: 'center' }}>
+              <div style={{ textAlign: "center" }}>
                 <h3>Kategori</h3>
               </div>
-              <Form style={{ paddingTop: '10px', textAlign: 'center' }}>
+              <Form style={{ paddingTop: "10px", textAlign: "center" }}>
                 <div class="form-check form-check-inline">
                   <input
                     class="form-check-input"
@@ -81,22 +83,25 @@ class listItemKategori extends React.Component {
               </Form>
             </div>
           </div>
-          <div className="col-md-7" style={{ borderLeft: '1px solid grey' }}>
-            <div className="row" style={{ display: 'flex', marginTop: '20px' }}>
+          <div className="col-md-7" style={{ borderLeft: "1px solid grey" }}>
+            <div className="row" style={{ display: "flex", marginTop: "20px" }}>
               {list_product.map((isi, i) => (
                 <div className="col-md-4">
                   <div className="kotak_barang">
-                    <div className="col-md-12" style={{ marginBottom: '10px' }}>
-                      <Link className="underlineHover" to={`/product/${isi.id}`}>
+                    <div className="col-md-12" style={{ marginBottom: "10px" }}>
+                      <Link
+                        className="underlineHover"
+                        to={`/product/${isi.id}`}
+                      >
                         <img
-                          style={{ borderRadius: '10px' }}
+                          style={{ borderRadius: "10px" }}
                           src={isi.gambar_1}
                           className="fotoBarang"
                           alt=""
                         />
                       </Link>
                     </div>
-                    <div className="col-md-12" style={{ marginBottom: '10px' }}>
+                    <div className="col-md-12" style={{ marginBottom: "10px" }}>
                       <span>Rp {isi.price}</span>
                     </div>
                     <div className="col-md-12">
@@ -113,6 +118,6 @@ class listItemKategori extends React.Component {
   }
 }
 export default connect(
-  'listAllProduct, item_search, kategori',
+  "listAllProduct, item_search, kategori",
   actions
 )(withRouter(listItemKategori));
