@@ -24,10 +24,10 @@ script:
   #- cp travis.env .env
   #- cat .env
   #- mkdir logs
-  # - npm run build
-  - npm run test
+  - npm run build
+  # - npm run test
 after_success:
-  - npm run coverage
+  # - npm run coverage
 
 deploy:
   - provider: script
