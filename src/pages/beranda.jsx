@@ -31,7 +31,7 @@ class Beranda extends Component {
               marginBottom: "20px"
             }}
           >
-            <h1>ALL ITEM</h1>
+            <h1>All Product</h1>
           </div>
           <div style={{ display: "flex" }}>
             <AllItem />
