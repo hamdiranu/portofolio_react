@@ -21,7 +21,7 @@ class listItemKategori extends React.Component {
   render() {
     var list_product;
     // Untuk menfilter item berdasarkan kategori
-    if (this.props.item_search === "") {
+    if (this.props.kategori !== "") {
       this.props.getSearchProduct();
       list_product = this.props.listAllProduct.filter(
         element => element.kategori === this.props.kategori
