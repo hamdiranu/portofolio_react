@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Ubuntu&display=swap");
 
 .logo-react {
   width: 60px;
@@ -16,7 +16,7 @@
 }
 
 .form-inline .form-control {
-  width: 180px;
+  width: 296px;
   height: 34px;
 }
 
@@ -26,15 +26,15 @@
 
 a {
   font-size: 15px;
-  font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+  font-family: "Ubuntu", Arial, Helvetica, sans-serif;
 }
 
 .btn-info {
-  font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+  font-family: "Ubuntu", Arial, Helvetica, sans-serif;
 }
 
 h3 {
-  font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
+  font-family: "Ubuntu", Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -282,7 +282,7 @@ header {
 
 @media (max-width: 767px) {
   .form-inline .form-control {
-    width: 138px;
+    width: 175px;
     height: 34px;
   }
 

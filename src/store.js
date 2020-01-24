@@ -42,7 +42,7 @@ const initialState = {
   expired_month_payment: "",
   expired_year_payment: "",
   status_cod_payment: false,
-  list_product_search: ""
+  listSearchProduct: []
 };
 
 export const store = createStore(initialState);
@@ -64,14 +64,6 @@ export const actions = store => ({
   changeInput: (state, event) => {
     store.setState({ [event.target.name]: event.target.value });
     console.log(event.target.name, event.target.value);
-  },
-
-  changeInputListSearch: state => {
-    store.setState({
-      list_product_search: state.listAllProduct.filter(
-        element => element.kategori === state.kategori
-      )
-    });
   },
 
   // Fungsi untuk mendapatkan informasi kategori yang di klik
@@ -131,7 +123,7 @@ export const actions = store => ({
     axios
       .get(`https://manggaleh.site/item/list?item_name=${item_search}`)
       .then(response => {
-        store.setState({ listAllProduct: response.data });
+        store.setState({ listSearchProduct: response.data });
       })
       .catch(error => {
         alert("invalid params");

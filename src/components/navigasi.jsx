@@ -16,6 +16,7 @@ import {
   Button,
   ButtonGroup
 } from "react-bootstrap";
+import { FaSearch } from "react-icons/fa";
 
 class Navigasi extends React.Component {
   // fungsi untuk mengeluarkan tampilan saat search bar diinput
@@ -31,6 +32,7 @@ class Navigasi extends React.Component {
 
   submitHandler = event => {
     event.preventDefault();
+    this.props.history.push("/search/item");
     console.group("masuk");
   };
 
@@ -45,10 +47,10 @@ class Navigasi extends React.Component {
           bg="dark"
           variant="dark"
         >
-          <Navbar.Brand href="#home">
+          <Navbar.Brand>
             <img className="logo-react" src={logo} alt="" />
           </Navbar.Brand>
-          <Navbar.Brand href="#home">Manggaleh.com</Navbar.Brand>
+          <Navbar.Brand>Manggaleh.com</Navbar.Brand>
           <Navbar.Brand className="mr-lg-5" href="#home">
             <Link to="/" style={{ textDecoration: "none" }}>
               <h3 style={{ color: "black" }}>
@@ -58,11 +60,12 @@ class Navigasi extends React.Component {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Form onSubmit={this.submitHandler} inline>
+            <Form onSubmit={e => this.submitHandler(e)} inline>
               <select
                 onChange={e => this.props.changeInput(e)}
                 name="kategori"
                 class="custom-select"
+                style={{ height: "34px" }}
               >
                 <option value=" " selected>
                   All Category
@@ -74,10 +77,12 @@ class Navigasi extends React.Component {
               <FormControl
                 onChange={e => this.handleSearchContent(e)}
                 placeholder="Search"
-                className="mr-sm-2"
+                className="mr-sm-2 search_bar_home"
               />
               <Button type="submit" variant="secondary">
-                <Link to="/search/item">Search</Link>
+                {" "}
+                Search
+                {/* <Link to="/search/item">Search</Link> */}
               </Button>
             </Form>
           </Navbar.Collapse>
@@ -126,11 +131,12 @@ class Navigasi extends React.Component {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Form onSubmit={this.submitHandler} inline>
+            <Form onSubmit={e => this.submitHandler(e)} inline>
               <select
                 onChange={e => this.props.changeInput(e)}
                 name="kategori"
                 class="custom-select"
+                style={{ height: "34px" }}
               >
                 <option value=" " selected>
                   All Category
@@ -142,10 +148,10 @@ class Navigasi extends React.Component {
               <FormControl
                 onChange={e => this.handleSearchContent(e)}
                 placeholder="Search"
-                className="mr-sm-2"
+                className="mr-sm-2 search_bar_home"
               />
               <Button type="submit" variant="secondary">
-                <Link to="/search/item">Search</Link>
+                <FaSearch />
               </Button>
             </Form>
           </Navbar.Collapse>

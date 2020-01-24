@@ -19,13 +19,17 @@ class listItemKategori extends React.Component {
   };
 
   render() {
+    var list_product;
     // Untuk menfilter item berdasarkan kategori
-    this.props.getSearchProduct();
     if (this.props.item_search === "") {
-      this.props.changeInputListSearch();
+      this.props.getSearchProduct();
+      list_product = this.props.listAllProduct.filter(
+        element => element.kategori === this.props.kategori
+      );
+    } else {
+      this.props.getSearchProduct();
+      list_product = this.props.listSearchProduct;
     }
-
-    const list_product = this.props.list_product_search;
 
     console.log("cek list search", list_product);
 
@@ -115,6 +119,6 @@ class listItemKategori extends React.Component {
   }
 }
 export default connect(
-  "listAllProduct, item_search, kategori",
+  "listAllProduct, item_search, kategori, listSearchProduct",
   actions
 )(withRouter(listItemKategori));

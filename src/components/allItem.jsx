@@ -17,7 +17,7 @@ class AllItem extends React.Component {
       <div class="container">
         <div className="row">
           {list_all_product.map((isi, i) => (
-            <div className="col-md-4">
+            <div className="col-md-3">
               <div className="kotak_barang">
                 <div className="col-md-12">
                   <Link className="underlineHover" to={`/product/${isi.id}`}>
