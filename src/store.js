@@ -41,7 +41,8 @@ const initialState = {
   security_code_payment: "",
   expired_month_payment: "",
   expired_year_payment: "",
-  status_cod_payment: false
+  status_cod_payment: false,
+  list_product_search: ""
 };
 
 export const store = createStore(initialState);
@@ -63,6 +64,14 @@ export const actions = store => ({
   changeInput: (state, event) => {
     store.setState({ [event.target.name]: event.target.value });
     console.log(event.target.name, event.target.value);
+  },
+
+  changeInputListSearch: state => {
+    store.setState({
+      list_product_search: state.listAllProduct.filter(
+        element => element.kategori === state.kategori
+      )
+    });
   },
 
   // Fungsi untuk mendapatkan informasi kategori yang di klik
