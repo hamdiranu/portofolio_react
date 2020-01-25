@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Ubuntu&display=swap");
 
 .fotoBarang {
   width: 110px;
@@ -43,7 +43,11 @@
   border: 1px solid bisque;
   border-radius: 5px;
   padding: 10px;
+  margin-left: 44px;
 }
 
 @media (max-width: 767px) {
+  .kotak_kategori {
+    margin-left: 20px;
+  }
 }

@@ -36,7 +36,7 @@ class listItemKategori extends React.Component {
     return (
       <div className="container-fluid">
         <div className="row profileBody-row">
-          <div className="col-md-4">
+          <div className="col-md-4 col-sm-12">
             <div className="kotak_kategori">
               <div style={{ textAlign: "center" }}>
                 <h3>Kategori</h3>
@@ -84,7 +84,10 @@ class listItemKategori extends React.Component {
               </Form>
             </div>
           </div>
-          <div className="col-md-7" style={{ borderLeft: "1px solid grey" }}>
+          <div
+            className="col-md-7 list_item_search"
+            style={{ borderLeft: "1px solid grey" }}
+          >
             <div className="row" style={{ display: "flex", marginTop: "20px" }}>
               {list_product.map((isi, i) => (
                 <div className="col-md-4">

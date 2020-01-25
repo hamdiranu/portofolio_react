@@ -107,7 +107,7 @@ export const actions = store => ({
   // Axios ntuk mendapatkan list all product
   getAllProduct: () => {
     axios
-      .get("https://manggaleh.site/item")
+      .get("https://manggaleh.site/item?rp=1000")
       .then(response => {
         store.setState({ list_all_product: response.data });
       })
@@ -170,6 +170,7 @@ export const actions = store => ({
       )
       .then(response => {
         store.setState({ cart_id: response.data.cart_id });
+        console.log("cek post cart", response.data);
         alert("Berhasil ditambahkan ke keranjang");
       })
       .catch(error => {
@@ -189,7 +190,7 @@ export const actions = store => ({
   getCart: state => {
     const user_id = Number(localStorage.getItem("user_id"));
     axios
-      .get("https://manggaleh.site/cart", {
+      .get("https://manggaleh.site/cart?rp=1000", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "application/json"
@@ -214,7 +215,7 @@ export const actions = store => ({
   // Axios ntuk mendapatkan list cart
   getCartDetail: state => {
     axios
-      .get("https://manggaleh.site/cart/detail")
+      .get("https://manggaleh.site/cart/detail?rp=1000")
       .then(response => {
         const objekCartDetail = response.data.filter(
           element => element.cart_id === state.cart_id
