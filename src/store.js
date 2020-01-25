@@ -4,7 +4,6 @@ import axios from "axios";
 const initialState = {
   token: "",
   search: "",
-  isLoading: true,
   keyword: "",
   is_login: false,
   username: "",
@@ -20,7 +19,7 @@ const initialState = {
   phone_number: "",
   password: "",
   email: "",
-  listAllProduct: [],
+  list_all_product: [],
   id_product: "",
   list_product_kategori: [],
   product_detail: {},
@@ -29,7 +28,7 @@ const initialState = {
   total_to_cart: "",
   cart_id: "",
   total_harga_cart: "",
-  listCart: [],
+  list_cart: [],
   total_barang_cart: "",
   nama_penerima_checkout: "",
   alamat_checkout: "",
@@ -42,7 +41,7 @@ const initialState = {
   expired_month_payment: "",
   expired_year_payment: "",
   status_cod_payment: false,
-  listSearchProduct: []
+  list_search_product: []
 };
 
 export const store = createStore(initialState);
@@ -110,7 +109,7 @@ export const actions = store => ({
     axios
       .get("https://manggaleh.site/item")
       .then(response => {
-        store.setState({ listAllProduct: response.data });
+        store.setState({ list_all_product: response.data });
       })
       .catch(error => {
         alert("invalid params");
@@ -123,7 +122,7 @@ export const actions = store => ({
     axios
       .get(`https://manggaleh.site/item/list?item_name=${item_search}`)
       .then(response => {
-        store.setState({ listSearchProduct: response.data });
+        store.setState({ list_search_product: response.data });
       })
       .catch(error => {
         alert("invalid params");
@@ -188,6 +187,7 @@ export const actions = store => ({
 
   // Axios ntuk mendapatkan info cart yang tersedia
   getCart: state => {
+    const user_id = Number(localStorage.getItem("user_id"));
     axios
       .get("https://manggaleh.site/cart", {
         headers: {
@@ -197,8 +197,9 @@ export const actions = store => ({
       })
       .then(response => {
         const objekCart = response.data.filter(
-          element => element.status === false
+          element => element.user_id === user_id && element.status === false
         );
+        console.log("cek isi object Cart", objekCart);
         store.setState({
           total_harga_cart: objekCart[0].total_harga,
           total_barang_cart: objekCart[0].total_item,
@@ -218,7 +219,7 @@ export const actions = store => ({
         const objekCartDetail = response.data.filter(
           element => element.cart_id === state.cart_id
         );
-        store.setState({ listCart: objekCartDetail });
+        store.setState({ list_cart: objekCartDetail });
       })
       .catch(error => {
         alert("Terjadi kesalahan saat mengambil cart detail");

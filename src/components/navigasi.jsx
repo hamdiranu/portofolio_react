@@ -187,6 +187,6 @@ class Navigasi extends React.Component {
 }
 
 export default connect(
-  "item_search, is_login, isLoading, search, idKota",
+  "item_search, is_login, search, idKota",
   actions
 )(withRouter(Navigasi));

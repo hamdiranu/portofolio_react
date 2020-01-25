@@ -1,17 +1,17 @@
-import React from 'react';
-import '../styles/footer.css';
-import '../styles/bootstrap.min.css';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'unistore/react';
-import { actions } from '../store';
-import { Form } from 'react-bootstrap';
+import React from "react";
+import "../styles/footer.css";
+import "../styles/bootstrap.min.css";
+import { withRouter } from "react-router-dom";
+import { connect } from "unistore/react";
+import { actions } from "../store";
+import { Form } from "react-bootstrap";
 
 class ListItemSearch extends React.Component {
   componentDidMount = async () => {
     this.props.getAllProduct();
   };
   render() {
-    const list_product = this.props.listAllProduct.filter(
+    const list_product = this.props.list_all_product.filter(
       element => element.kategori === this.props.kategori
     );
     return (
@@ -19,10 +19,10 @@ class ListItemSearch extends React.Component {
         <div className="row profileBody-row">
           <div className="col-md-4">
             <div className="kotak_kategori">
-              <div style={{ textAlign: 'center' }}>
+              <div style={{ textAlign: "center" }}>
                 <h3>Kategori</h3>
               </div>
-              <Form style={{ paddingTop: '10px', textAlign: 'center' }}>
+              <Form style={{ paddingTop: "10px", textAlign: "center" }}>
                 <div class="form-check form-check-inline">
                   <input
                     class="form-check-input"
@@ -66,7 +66,7 @@ class ListItemSearch extends React.Component {
             </div>
           </div>
           <div className="col-md-7">
-            <div className="row" style={{ display: 'flex', marginTop: '20px' }}>
+            <div className="row" style={{ display: "flex", marginTop: "20px" }}>
               {list_product.map((isi, i) => (
                 <div className="col-md-4 kotak_barang">
                   <div className="col-md-12">
@@ -87,4 +87,7 @@ class ListItemSearch extends React.Component {
     );
   }
 }
-export default connect('listAllProduct, kategori', actions)(withRouter(ListItemSearch));
+export default connect(
+  "list_all_product, kategori",
+  actions
+)(withRouter(ListItemSearch));

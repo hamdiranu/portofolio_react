@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import Navigasi from '../components/navigasi';
-import Footer from '../components/footer';
-import CartComponent from '../components/cart';
-import '../styles/daftar.css';
-import '../styles/checkout.css';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'unistore/react';
-import { actions } from '../store';
+import React, { Component } from "react";
+import Navigasi from "../components/navigasi";
+import Footer from "../components/footer";
+import CartComponent from "../components/cart";
+import "../styles/daftar.css";
+import "../styles/checkout.css";
+import { withRouter } from "react-router-dom";
+import { connect } from "unistore/react";
+import { actions } from "../store";
 
 class Cart extends Component {
   render() {
@@ -23,6 +23,6 @@ class Cart extends Component {
 }
 
 export default connect(
-  'total_barang_cart, listCart, cart_id, total_harga_cart',
+  "total_barang_cart, listCart, cart_id, total_harga_cart",
   actions
 )(withRouter(Cart));

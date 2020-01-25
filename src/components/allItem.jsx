@@ -11,7 +11,7 @@ class AllItem extends React.Component {
   };
 
   render() {
-    const list_all_product = this.props.listAllProduct;
+    const list_all_product = this.props.list_all_product;
 
     return (
       <div class="container">
@@ -46,4 +46,4 @@ class AllItem extends React.Component {
     );
   }
 }
-export default connect("listAllProduct", actions)(withRouter(AllItem));
+export default connect("list_all_product", actions)(withRouter(AllItem));
