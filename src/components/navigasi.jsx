@@ -36,6 +36,12 @@ class Navigasi extends React.Component {
     console.group("masuk");
   };
 
+  adminHome = () => {
+    if (localStorage.getItem("username") === "admin") {
+      this.props.history.push("/admin/home");
+    }
+  };
+
   render() {
     if (localStorage.getItem("is_login")) {
       return (
@@ -48,7 +54,12 @@ class Navigasi extends React.Component {
           variant="dark"
         >
           <Navbar.Brand>
-            <img className="logo-react" src={logo} alt="" />
+            <img
+              onClick={() => this.adminHome()}
+              className="logo-react"
+              src={logo}
+              alt=""
+            />
           </Navbar.Brand>
           <Navbar.Brand>Manggaleh.com</Navbar.Brand>
           <Navbar.Brand className="mr-lg-5" href="#home">

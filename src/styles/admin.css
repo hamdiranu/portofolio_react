@@ -1,0 +1,124 @@
+.table_product {
+  text-align: center;
+}
+
+.preview_gambar {
+  width: 100px;
+  height: 100px;
+  border-radius: 5px;
+}
+
+.button_details {
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.button_details:hover {
+  color: white;
+  background-color: yellowgreen;
+  transition: 0.3s;
+}
+
+.button_delete {
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.button_delete:hover {
+  color: white;
+  background-color: red;
+  transition: 0.3s;
+}
+
+.admin_item {
+  background-color: #3cd014;
+  padding: 100px;
+  margin: 40px;
+  border-radius: 10px;
+  transition: 0.4s;
+  margin-bottom: 20px;
+}
+
+.admin_item:hover {
+  color: white;
+  transition: 0.4s;
+  background-color: rgb(34, 175, 9);
+}
+
+.admin_item svg {
+  width: 80px;
+  height: 80px;
+}
+
+.admin_user {
+  background-color: #0089e1;
+  padding: 100px;
+  margin: 40px;
+  border-radius: 10px;
+  transition: 0.4s;
+  margin-bottom: 20px;
+}
+
+.admin_user:hover {
+  color: white;
+  transition: 0.4s;
+  background-color: #0054be;
+}
+
+.admin_user svg {
+  width: 80px;
+  height: 80px;
+}
+
+.admin_transaction {
+  background-color: #906735;
+  padding: 100px;
+  margin: 40px;
+  border-radius: 10px;
+  transition: 0.4s;
+  margin-bottom: 20px;
+}
+
+.admin_transaction:hover {
+  color: white;
+  transition: 0.4s;
+  background-color: #6e4a1f;
+}
+
+.admin_transaction svg {
+  width: 80px;
+  height: 80px;
+}
+
+.button_back_home {
+  margin: 20px;
+  width: 90px;
+  height: 50px;
+  transition: 0.4s;
+}
+
+.button_back_home svg {
+  width: 30px;
+  height: 30px;
+}
+
+.button_back_home:hover {
+  color: white;
+  background-color: blueviolet;
+  transition: 0.4s;
+}
+
+.judul_admin {
+  margin: auto;
+  margin-left: 373px;
+}
+
+.judul_admin_user {
+  margin: auto;
+  margin-left: 445px;
+}
+
+.judul_admin_product {
+  margin: auto;
+  margin-left: 423px;
+}

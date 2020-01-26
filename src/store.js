@@ -41,7 +41,10 @@ const initialState = {
   expired_month_payment: "",
   expired_year_payment: "",
   status_cod_payment: false,
-  list_search_product: []
+  list_search_product: [],
+  list_admin_product: [],
+  list_admin_user: [],
+  list_admin_transaksi: []
 };
 
 export const store = createStore(initialState);
@@ -277,6 +280,58 @@ export const actions = store => ({
           total_barang_cart: 0
         });
         alert("Payment Success, Please Cek Your E-mail");
+      })
+      .catch(error => false);
+  },
+
+  getAdminProduct: () => {
+    axios
+      .get("https://manggaleh.site/item?rp=1000")
+      .then(response => {
+        const list_product = response.data.filter(
+          element => element.deleted === false
+        );
+        store.setState({ list_admin_product: list_product });
+      })
+      .catch(error => {
+        alert("invalid params");
+      });
+  },
+
+  getAdminUser: async state => {
+    const req = {
+      method: "get",
+      url: "https://manggaleh.site/user?rp=1000",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    };
+    await axios(req)
+      .then(response => {
+        console.log("cek response", response.data);
+        const list_user = response.data.filter(
+          element => element.deleted === false
+        );
+        store.setState({ list_admin_user: list_user });
+      })
+      .catch(error => false);
+  },
+
+  getAdminTransaksi: async state => {
+    const req = {
+      method: "get",
+      url: "https://manggaleh.site/cart?rp=1000",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    };
+    await axios(req)
+      .then(response => {
+        console.log("cek response cart admin", response.data[0].status);
+        const list_transaksi = response.data.filter(
+          element => element.deleted === false
+        );
+        store.setState({ list_admin_transaksi: list_transaksi });
       })
       .catch(error => false);
   }
