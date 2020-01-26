@@ -15,14 +15,7 @@ class AdminProduct extends React.Component {
     return (
       <React.Fragment>
         <div>
-          <div
-            style={{
-              marginTop: "135px",
-              textAlign: "center",
-              backgroundColor: "#CCCCCC",
-              display: "flex"
-            }}
-          >
+          <div className="body_admin">
             <button onClick={() => this.adminGoHome()} class="button_back_home">
               <FaHome />
             </button>

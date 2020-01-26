@@ -5,13 +5,6 @@
   display: flex;
 }
 
-.body_admin_transaksi {
-  margin-top: 135px;
-  text-align: center;
-  background-color: #cccccc;
-  display: flex;
-}
-
 .table_product {
   text-align: center;
 }
@@ -144,13 +137,6 @@
   }
 
   .body_admin {
-    margin-top: 119px;
-    text-align: center;
-    background-color: #cccccc;
-    display: flex;
-  }
-
-  .body_admin_transaksi {
     margin-top: 202px;
     text-align: center;
     background-color: #cccccc;
