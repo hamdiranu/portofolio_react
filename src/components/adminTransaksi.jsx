@@ -12,6 +12,7 @@ class AdminTransaksi extends React.Component {
   };
   render() {
     const list_transaksi_admin = this.props.list_admin_transaksi;
+    var currencyFormatter = require("currency-formatter");
     return (
       <React.Fragment>
         <div>
@@ -40,7 +41,12 @@ class AdminTransaksi extends React.Component {
                   <td>{isi.user_id}</td>
                   <td>{isi.status ? "Lunas" : "Belum Lunas"}</td>
                   <td>{isi.total_item}</td>
-                  <td>Rp {isi.total_harga}</td>
+                  <td>Rp {currencyFormatter.format(isi.total_harga,
+                    {
+                      code: "IDR",
+                      symbol: ""
+                    }
+                  )}</td>
                   <td>{isi.created_at}</td>
                   <td>
                     <button class="button_delete">

@@ -8,6 +8,7 @@
 .navbar_react {
   padding-top: 15px;
   padding-bottom: 15px;
+  background-image: linear-gradient(to right, #09BBF7, #058AF1, #0068F4, #1567BB);
 }
 
 .custom-select {

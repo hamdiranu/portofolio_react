@@ -3,7 +3,7 @@ import '../styles/masuk.css';
 import '../styles/carousel.css';
 import '../styles/bootstrap.min.css';
 import slider1 from '../images/slider1.jpg';
-import slider2 from '../images/slider2.jpg';
+import slider2 from '../images/slider2a.jpg';
 import slider3 from '../images/slider3.jpg';
 import { Link } from 'react-router-dom';
 import { connect } from 'unistore/react';
@@ -33,7 +33,7 @@ class Carousel extends React.Component {
           <div class="carousel-item">
             <img
               onClick={e => this.props.sliderInputKategori('OTOMOTIF')}
-              class="d-block w-100 img_carousel"
+              class="slider2 d-block"
               src={slider2}
               alt="Second slide"
             />

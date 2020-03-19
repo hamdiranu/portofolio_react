@@ -12,7 +12,7 @@ class AllItem extends React.Component {
 
   render() {
     const list_all_product = this.props.list_all_product;
-
+    var currencyFormatter = require("currency-formatter");
     return (
       <div class="container">
         <div className="row">
@@ -33,7 +33,13 @@ class AllItem extends React.Component {
                   className="col-md-12"
                   style={{ paddingBottom: "10px", paddingTop: "10px" }}
                 >
-                  <span>Rp {isi.price}</span>
+                  <span className="hargaAll">Rp {currencyFormatter.format(isi.price,
+                    {
+                      code: "IDR",
+                      symbol: ""
+                    }
+                  )}
+                  </span>
                 </div>
                 <div className="col-md-12">
                   <span>{isi.item_name}</span>

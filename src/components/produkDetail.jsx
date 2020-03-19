@@ -25,7 +25,7 @@ class ProductDetail extends React.Component {
 
   render() {
     const detail_product = this.props.product_detail;
-
+    var currencyFormatter = require("currency-formatter");
     return (
       <div className="container kotak_product">
         <div className="row">
@@ -76,7 +76,12 @@ class ProductDetail extends React.Component {
               <h3>{detail_product.item_name}</h3>
             </div>
             <div style={{ margin: '10px 10px' }}>
-              <h4>Rp {detail_product.price}</h4>
+              <h4>Rp {currencyFormatter.format(detail_product.price,
+                {
+                  code: "IDR",
+                  symbol: ""
+                }
+              )}</h4>
             </div>
             <div style={{ margin: '10px 10px' }}>
               <span>Spesifikasi :</span>

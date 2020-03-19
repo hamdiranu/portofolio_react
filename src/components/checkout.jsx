@@ -17,6 +17,7 @@ class componentCheckout extends React.Component {
   };
 
   render() {
+    var currencyFormatter = require("currency-formatter");
     return (
       <div className="berandaLogin">
         <div className="fadeIn first judulSignUp">
@@ -101,7 +102,12 @@ class componentCheckout extends React.Component {
                     <span>Jumlah barang : {this.props.total_barang_cart}</span>
                   </div>
                   <div>
-                    <span>Total : Rp {this.props.total_harga_cart}</span>
+                    <span>Total : Rp {currencyFormatter.format(this.props.total_harga_cart,
+                      {
+                        code: "IDR",
+                        symbol: ""
+                      }
+                    )}</span>
                   </div>
                 </div>
                 <div className="col-md-12" style={{ textAlign: 'center', marginTop: '20px' }}>

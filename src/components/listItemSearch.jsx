@@ -31,8 +31,8 @@ class listItemKategori extends React.Component {
       list_product = this.props.list_search_product;
     }
 
-    console.log("cek list search", list_product);
-
+    console.log("cek list search", this.props.kategori);
+    var currencyFormatter = require("currency-formatter");
     return (
       <div className="container-fluid">
         <div className="row profileBody-row">
@@ -106,7 +106,12 @@ class listItemKategori extends React.Component {
                       </Link>
                     </div>
                     <div className="col-md-12" style={{ marginBottom: "10px" }}>
-                      <span>Rp {isi.price}</span>
+                      <span className="hargaAll">Rp {currencyFormatter.format(isi.price,
+                        {
+                          code: "IDR",
+                          symbol: ""
+                        }
+                      )}</span>
                     </div>
                     <div className="col-md-12">
                       <span>{isi.item_name}</span>

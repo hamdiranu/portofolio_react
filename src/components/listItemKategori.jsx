@@ -14,6 +14,7 @@ class ListItemSearch extends React.Component {
     const list_product = this.props.list_all_product.filter(
       element => element.kategori === this.props.kategori
     );
+    var currencyFormatter = require("currency-formatter");
     return (
       <div className="container-fluid">
         <div className="row profileBody-row">
@@ -73,7 +74,12 @@ class ListItemSearch extends React.Component {
                     <img src={isi.gambar_1} className="fotoBarang" alt="" />
                   </div>
                   <div className="col-md-12">
-                    <span>Rp {isi.price}</span>
+                    <span>Rp {currencyFormatter.format(isi.price,
+                      {
+                        code: "IDR",
+                        symbol: ""
+                      }
+                    )}</span>
                   </div>
                   <div className="col-md-12">
                     <span>{isi.item_name}</span>

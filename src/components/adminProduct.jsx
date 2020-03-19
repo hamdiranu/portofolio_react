@@ -12,6 +12,7 @@ class AdminProduct extends React.Component {
   };
   render() {
     const list_product_admin = this.props.list_admin_product;
+    var currencyFormatter = require("currency-formatter");
     return (
       <React.Fragment>
         <div>
@@ -45,7 +46,12 @@ class AdminProduct extends React.Component {
                     />
                   </td>
                   <td>{isi.item_name}</td>
-                  <td>Rp {isi.price}</td>
+                  <td>Rp {currencyFormatter.format(isi.price,
+                    {
+                      code: "IDR",
+                      symbol: ""
+                    }
+                  )}</td>
                   <td>{isi.kategori}</td>
                   <td>
                     <button class="button_details">See Detail</button>

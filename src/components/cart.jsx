@@ -12,6 +12,7 @@ class CartComponent extends React.Component {
     const list_cart_item = this.props.list_cart.filter(
       element => element.total_product > 0
     );
+    var currencyFormatter = require("currency-formatter");
     return (
       <React.Fragment>
         <div
@@ -86,7 +87,12 @@ class CartComponent extends React.Component {
                 className="col-md-2"
                 style={{ textAlign: "center", margin: "auto" }}
               >
-                <span> Rp {isi.product_price} </span>
+                <span> Rp {currencyFormatter.format(isi.product_price,
+                  {
+                    code: "IDR",
+                    symbol: ""
+                  }
+                )} </span>
               </div>
               <div
                 className="col-md-2"
@@ -98,7 +104,12 @@ class CartComponent extends React.Component {
                 className="col-md-2"
                 style={{ textAlign: "center", margin: "auto" }}
               >
-                <span> Rp {isi.sub_total} </span>
+                <span> Rp {currencyFormatter.format(isi.sub_total,
+                  {
+                    code: "IDR",
+                    symbol: ""
+                  }
+                )} </span>
               </div>
             </div>
           </div>
@@ -124,7 +135,12 @@ class CartComponent extends React.Component {
               className="col-md-6"
               style={{ textAlign: "left", margin: "auto" }}
             >
-              <span> Rp {this.props.total_harga_cart} </span>
+              <span> Rp {currencyFormatter.format(this.props.total_harga_cart,
+                {
+                  code: "IDR",
+                  symbol: ""
+                }
+              )} </span>
             </div>
             <div className="col-md-2" style={{ textAlign: "center" }}>
               <span>{this.props.total_barang_cart} </span>
