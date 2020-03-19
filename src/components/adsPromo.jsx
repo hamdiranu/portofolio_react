@@ -26,8 +26,9 @@ class Promo extends React.Component {
         <div>
           <Link to="/search/item">
             <img
+              className="iklan_promo_b"
               onClick={e => this.props.sliderInputKategori('ELEKTRONIK')}
-              style={{ width: '100%', height: '171px' }}
+              style={{ height: '171px' }}
               src={gambar2}
               alt=""
             />

@@ -19,6 +19,10 @@ body {
   width: 61vh;
 }
 
+.iklan_promo_b {
+  width: 107%;
+}
+
 a {
   color: #92badd;
   display: inline-block;
@@ -322,9 +326,21 @@ input[type='password']:placeholder {
   padding-right: 10px;
 }
 
+.jarak_promo {
+  padding-left: 5px;
+}
+
 @media (max-width: 767px) {
   .iklan_promo {
     width: 52vh;
+  }
+
+  .iklan_promo_b {
+    width: 101%;
+  }
+
+  .jarak_promo {
+    padding-left: 15px;
   }
 
   input[type='text'],
