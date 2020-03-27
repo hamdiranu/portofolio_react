@@ -8,16 +8,16 @@
 
 .logo-react:hover {
   transform: scale(1.1);
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .button_daftar {
-  transition: 0.3s;
+  transition: 0.2s;
   border: 2px solid #70D7FA !important;
 }
 
 .button_daftar:hover {
-  transition: 0.3s;
+  transition: 0.2s;
   transform: scale(1.05);
   color: white !important;
   background-color: #0272BA !important;
