@@ -19,11 +19,16 @@ import {
 import { FaSearch } from "react-icons/fa";
 
 class Navigasi extends React.Component {
-  // fungsi untuk mengeluarkan tampilan saat search bar diinput
+  /**
+  * fungsi untuk mengeluarkan tampilan saat search bar diinput
+  */
   handleSearchContent = e => {
     this.props.handleSearch(e);
   };
 
+  /**
+  * fungsi untuk keluar akun(logout)
+  */
   logOut = () => {
     this.props.handleLogOut();
     this.props.history.push("/");
