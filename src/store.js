@@ -107,7 +107,9 @@ export const actions = store => ({
       .catch(error => false);
   },
 
-  // Axios ntuk mendapatkan list all product
+  /**
+  * fungsi Axios ntuk mendapatkan list all product
+  */
   getAllProduct: () => {
     axios
       .get("https://manggaleh.site/item?rp=1000")
@@ -181,7 +183,9 @@ export const actions = store => ({
       });
   },
 
-  // Fungsi untuk log out
+  /**
+  * fungsi untuk keluar akun(logout)
+  */
   handleLogOut: async () => {
     localStorage.removeItem("user_id");
     localStorage.removeItem("is_login");
