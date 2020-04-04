@@ -121,7 +121,9 @@ export const actions = store => ({
       });
   },
 
-  // Axios ntuk mendapatkan item product yang di search
+  /**
+  * fungsi Axios ntuk mendapatkan item product yang di search
+  */
   getSearchProduct: state => {
     const { item_search } = state;
     axios
