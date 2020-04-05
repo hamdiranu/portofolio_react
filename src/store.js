@@ -50,35 +50,48 @@ const initialState = {
 export const store = createStore(initialState);
 
 export const actions = store => ({
-  // Fungsi untuk mengubah state sesuai dengan inputan pada kotak input
+  /**
+  * Fungsi untuk mengubah state sesuai dengan inputan pada kotak input
+  */ 
   handleSearch: (state, e) => {
     const { value } = e.target;
     store.setState({ item_search: value });
   },
 
-  // Fungsi untuk menyimpan jumlah barang yang ditambah pembeli ke cart
+  /**
+  * Fungsi untuk menyimpan jumlah barang yang ditambah pembeli ke cart
+  */
   handleSelect: (state, e) => {
     const { value } = e.target;
     store.setState({ total_to_cart: value });
   },
 
-  // Fungsi untuk mendapatkan informasi pada search/input bar
+  /**
+  * Fungsi untuk mendapatkan informasi pada search/input bar
+  */
   changeInput: (state, event) => {
     store.setState({ [event.target.name]: event.target.value });
     console.log(event.target.name, event.target.value);
   },
 
-  // Fungsi untuk mendapatkan informasi kategori yang di klik
+  /**
+  * Fungsi untuk mendapatkan informasi kategori yang di klik
+  */
   changeInputKategori: (state, event) => {
     store.setState({ kategori: event.target.value, item_search: "" });
   },
 
+  /**
+  * Fungsi Axios untuk mendapatkan jenis kategori slider yang diklik user
+  */
   sliderInputKategori: (state, event) => {
     console.log("cek klik slider", event);
     store.setState({ kategori: event, item_search: "" });
   },
 
-  // Axios untuk registrasi
+  /**
+  * Fungsi Axios untuk mendaftarkan akun baru(registrasi)
+  */
   handleSignUp: async state => {
     const req = {
       method: "post",
@@ -108,7 +121,7 @@ export const actions = store => ({
   },
 
   /**
-  * fungsi Axios ntuk mendapatkan list all product
+  * Fungsi Axios untuk mendapatkan list all product
   */
   getAllProduct: () => {
     axios
@@ -122,7 +135,7 @@ export const actions = store => ({
   },
 
   /**
-  * fungsi Axios ntuk mendapatkan item product yang di search
+  * Fungsi Axios untuk mendapatkan item product yang di search
   */
   getSearchProduct: state => {
     const { item_search } = state;
@@ -136,7 +149,9 @@ export const actions = store => ({
       });
   },
 
-  // Axios ntuk mendapatkan informasi item product yang di klik
+  /**
+  * Fungsi Axios untuk mendapatkan informasi item product yang di klik
+  */
   getProductDetail: state => {
     const { id_product } = state;
     axios
@@ -149,7 +164,9 @@ export const actions = store => ({
       });
   },
 
-  // Axios ntuk mendapatkan informasi profil
+  /**
+  * Fungsi Axios untuk mendapatkan informasi profil
+  */
   getUserDetail: state => {
     axios
       .get(`https://manggaleh.site/user/${localStorage.getItem("user_id")}`)
@@ -159,7 +176,9 @@ export const actions = store => ({
       .catch(error => {});
   },
 
-  // Axios ntuk menginput barang ke cart
+  /**
+  * Fungsi Axios ntuk menginput barang ke cart
+  */
   postCart: state => {
     axios
       .post(
@@ -186,7 +205,7 @@ export const actions = store => ({
   },
 
   /**
-  * fungsi untuk keluar akun(logout)
+  * Fungsi untuk keluar akun(logout)
   */
   handleLogOut: async () => {
     localStorage.removeItem("user_id");
@@ -195,7 +214,9 @@ export const actions = store => ({
     localStorage.removeItem("token");
   },
 
-  // Axios ntuk mendapatkan info cart yang tersedia
+  /**
+  * Fungsi Axios untuk mendapatkan info cart yang tersedia
+  */
   getCart: state => {
     const user_id = Number(localStorage.getItem("user_id"));
     axios
@@ -221,7 +242,9 @@ export const actions = store => ({
       });
   },
 
-  // Axios ntuk mendapatkan list cart
+  /**
+  * Fungsi Axios ntuk mendapatkan list cart
+  */
   getCartDetail: state => {
     axios
       .get("https://manggaleh.site/cart/detail?rp=1000")
@@ -236,7 +259,9 @@ export const actions = store => ({
       });
   },
 
-  // Fungsi utnuk menginputkan data checkout ke database checkout
+  /**
+  * Fungsi Axios untuk menginputkan data checkout ke database checkout
+  */
   handleCheckout: async state => {
     const req = {
       method: "post",
@@ -260,7 +285,9 @@ export const actions = store => ({
       .catch(error => false);
   },
 
-  // Fungsi utnuk menginputkan data checkout ke database checkout
+  /**
+  * Fungsi Axios untuk menginputkan data checkout ke database checkout
+  */
   handlePayment: async state => {
     const req = {
       method: "post",
@@ -290,6 +317,9 @@ export const actions = store => ({
       .catch(error => false);
   },
 
+  /**
+  * Fungsi Axios ntuk mendapatkan informasi daftar produk oleh admin
+  */
   getAdminProduct: () => {
     axios
       .get("https://manggaleh.site/item?rp=1000")
@@ -304,6 +334,9 @@ export const actions = store => ({
       });
   },
 
+  /**
+  * Fungsi Axios ntuk mendapatkan informasi daftar user oleh admin
+  */
   getAdminUser: async state => {
     const req = {
       method: "get",
@@ -323,6 +356,9 @@ export const actions = store => ({
       .catch(error => false);
   },
 
+  /**
+  * Fungsi Axios ntuk mendapatkan informasi daftar barang oleh admin
+  */
   getAdminTransaksi: async state => {
     const req = {
       method: "get",
