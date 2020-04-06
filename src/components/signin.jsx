@@ -8,6 +8,9 @@ import { store, actions } from "../store";
 import axios from "axios";
 
 class SignIn extends React.Component {
+  /**
+  * Fungsi Axios untuk login akun(sign in)
+  */
   handleLogin = () => {
     const self = this;
     const req = {
@@ -42,6 +45,9 @@ class SignIn extends React.Component {
       });
   };
 
+  /**
+  * Fungsi untuk meredirect user ke profil setelah melakukan login
+  */
   doLogin = async () => {
     await this.props.postLogin();
     if (this.props.is_login) {

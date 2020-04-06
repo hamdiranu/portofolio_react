@@ -7,11 +7,17 @@ import { actions } from '../store';
 import { Form, Row, Col } from 'react-bootstrap';
 
 class SignUp extends React.Component {
+  /**
+  * Fungsi untuk mendaftarkan akun baru(registrasi)
+  */
   signUp = async () => {
     await this.props.handleSignUp();
     this.props.history.push('/');
   };
 
+  /**
+  * Fungsi untuk mencegah url menampilkan isi form
+  */
   submitHandler = event => {
     event.preventDefault();
   };
