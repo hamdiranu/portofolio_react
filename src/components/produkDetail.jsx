@@ -7,12 +7,18 @@ import { store, actions } from '../store';
 import { Button } from 'react-bootstrap';
 
 class ProductDetail extends React.Component {
+  /**
+  * Fungsi untuk mendapatkan data detail barang
+  */
   componentDidMount = () => {
     const produk_id = this.props.match.params.id;
     store.setState({ id_product: produk_id });
     this.props.getProductDetail();
   };
 
+  /**
+  * Fungsi untuk menambahkan barang ke dalam cart
+  */
   postItem = async () => {
     if (localStorage.getItem('is_login')) {
       await this.props.postCart();
