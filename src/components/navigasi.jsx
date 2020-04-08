@@ -35,12 +35,18 @@ class Navigasi extends React.Component {
     alert("Sukses Log Out");
   };
 
+  /**
+  * fungsi untuk menuju halaman search item
+  */
   submitHandler = event => {
     event.preventDefault();
     this.props.history.push("/search/item");
     console.group("masuk");
   };
 
+  /**
+  * fungsi untuk masuk ke halaman admin
+  */
   adminHome = () => {
     if (localStorage.getItem("username") === "admin") {
       this.props.history.push("/admin/home");

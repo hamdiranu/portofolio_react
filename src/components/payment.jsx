@@ -7,11 +7,17 @@ import { actions } from '../store';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 
 class Payment extends React.Component {
+  /**
+  * Fungsi untuk mandaftarkan informasi payment dan langsung menuju home
+  */
   payment = async () => {
     await this.props.handlePayment();
     this.props.history.push('/');
   };
 
+  /**
+  * Fungsi untuk mencegah url menampilkan isi form
+  */
   submitHandler = event => {
     event.preventDefault();
   };
