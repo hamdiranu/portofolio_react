@@ -7,6 +7,9 @@ import { actions } from "../store";
 import { Form } from "react-bootstrap";
 
 class ListItemSearch extends React.Component {
+  /**
+  * Fungsi untuk mengambil data semua item
+  */
   componentDidMount = async () => {
     this.props.getAllProduct();
   };

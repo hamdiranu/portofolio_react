@@ -7,12 +7,13 @@ import { actions } from "../store";
 import { Form } from "react-bootstrap";
 
 class listItemKategori extends React.Component {
+  /**
+  * Fungsi untuk mengambil data item
+  */
   componentDidMount = async () => {
-    // Jika kotak pencarian kosong, akan mengambil semua item
     if (this.props.item_search === "") {
       this.props.getAllProduct();
     }
-    // Jika kotak pencarian tidak kosong
     else {
       this.props.getSearchProduct();
     }
@@ -20,7 +21,6 @@ class listItemKategori extends React.Component {
 
   render() {
     var list_product;
-    // Untuk menfilter item berdasarkan kategori
     if (this.props.kategori !== "") {
       this.props.getSearchProduct();
       list_product = this.props.list_all_product.filter(
