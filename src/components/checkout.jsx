@@ -7,6 +7,9 @@ import { actions } from '../store';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 
 class componentCheckout extends React.Component {
+  /**
+  * Fungsi untuk menginputkan data checkout ke database checkout
+  */
   checkOut = async () => {
     await this.props.handleCheckout();
     this.props.history.push('/payment');

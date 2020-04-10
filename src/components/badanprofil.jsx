@@ -8,6 +8,9 @@ import photo from '../images/patrick.png';
 import { actions } from '../store';
 
 class BodyProfile extends React.Component {
+  /**
+  * Fungsi untuk mendapatkan detail data user
+  */
   componentDidMount = async () => {
     this.props.getUserDetail();
   };
