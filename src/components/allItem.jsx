@@ -6,6 +6,9 @@ import { connect } from "unistore/react";
 import { actions } from "../store";
 
 class AllItem extends React.Component {
+  /**
+  * Fungsi untuk mendapatkan data semua produk
+  */
   componentDidMount = async () => {
     this.props.getAllProduct();
   };
