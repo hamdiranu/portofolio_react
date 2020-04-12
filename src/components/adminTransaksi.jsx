@@ -7,6 +7,9 @@ import { connect } from "unistore/react";
 import { actions } from "../store";
 
 class AdminTransaksi extends React.Component {
+  /**
+  * Fungsi untuk berpindah halaman ke home admin
+  */
   adminGoHome = () => {
     this.props.history.push("/admin/home");
   };
