@@ -9,14 +9,23 @@ import { connect } from "unistore/react";
 import { actions } from "../store";
 
 class AdminHome extends React.Component {
+  /**
+  * Fungsi untuk berpindah ke halaman daftar detail produk
+  */
   adminGoItem = () => {
     this.props.history.push("/admin/product");
   };
 
+  /**
+  * Fungsi untuk berpindah ke halaman daftar detail user
+  */
   adminGoUser = () => {
     this.props.history.push("/admin/user");
   };
 
+  /**
+  * Fungsi untuk berpindah ke halaman daftar detail transaksi
+  */
   adminGoTransaction = () => {
     this.props.history.push("/admin/transaksi");
   };
