@@ -24,7 +24,7 @@ class AdminHome extends React.Component {
   };
 
   /**
-  * Fungsi untuk berpindah ke halaman daftar detail transaksi
+  * Fungsi untuk berpindah ke halaman daftar detil transaksi
   */
   adminGoTransaction = () => {
     this.props.history.push("/admin/transaksi");
